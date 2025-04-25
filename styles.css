@@ -1,0 +1,386 @@
+/* تصميم الزر */
+.back-to-top-btn {
+  position: fixed;
+  bottom: 40px;  /* المسافة من أسفل الصفحة */
+  right: 30px;   /* المسافة من الجهة اليمنى */
+  background-color: #6b46c1; /* لون الخلفية */
+  color: white;
+  border: none;
+  border-radius: 100%; /* لتصميم الزر بشكل دائري */
+  padding: 5px 16px;  /* المسافة الداخلية */
+  font-size: 24px;
+  cursor: pointer;
+  display: none; /* خفائه مبدئيًا */
+  z-index: 999;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.back-to-top-btn:hover {
+  background-color: #553c9a; /* التفاعل عند التمرير على الزر */
+  transform: scale(1.1);
+}
+
+        /* بطاقات قسم الفريق فقط */
+.team-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s;
+  width: 190px; /* كبرنا حجم الكارت */
+  text-align: center;
+}
+
+.team-card:hover { /*عشان الكارت يطلع فوق سنة*/
+  transform: translateY(-10px);
+}
+
+.team-card img {
+  border-radius: 50%;
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+  margin: 0 auto 1rem;
+}
+
+.team-card h3 {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+.dark .team-card {
+  background-color: #2d3748; /* خلفية غامقة */
+  color: #ffffff; /* نص أبيض */
+  box-shadow: 0 6px 12px rgba(255, 255, 255, 0.1); /* ظل فاتح */
+}
+
+.dark .team-card h3 {
+  color: #ffffff; /* تأكيد على النص الأبيض */
+}
+
+/*نهاية قسم الفريق يا باشا */
+        .section-title {
+  font-size: 3rem;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.colorful-word:nth-child(1) {
+  color: #7a2983; /* بنفسجي */
+  animation: fadeIn 1s ease-in-out;
+}
+.colorful-word:nth-child(2) {
+  color: #078742; /* أخضر */
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+        html {
+  scroll-behavior: smooth;
+}
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #e6f4f1;
+            color: #333;
+            
+        }
+        .navbar {
+            background: linear-gradient(90deg, #7a2983, #078742);
+            color: white;
+            padding: 0.2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .hero {
+            text-align: center;
+            padding: 4rem 1rem;
+        }
+        .hero .right-side {
+            margin-left: 9rem; /* تحريك النص 2rem نحو اليمين */
+        }
+        .hero .right-side .flex {
+        justify-content: flex-start; /* تحريك الأزرار إلى اليمين */
+        margin-right: 35%; /* المسافة التي تريدها من الجهة اليمنى */
+        }
+
+        .hero p {
+            margin-top: -80px; /* رفع النص */
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #007bff;
+        }
+        .hero img {
+            width: 500px;
+            margin-bottom: 1rem;
+            transform: translateX(-60px); /* تحريك الفيديو نحو اليمين بمقدار 20px */
+        }
+        .video-container {
+    width: 100%; /* التأكد من ملء الحاوية */
+    max-width: 800px; /* وضع حد أقصى */
+    margin: 0 auto;
+    border: 12px solid #a2ddb5;
+    border-radius: 30px;
+    padding: 2 2px;
+    box-shadow: 0 20px 10px rgba(0, 0, 0, 0.15);
+    background-color: #fff;
+    transition: all 0.3s ease;
+        }
+
+        .video-container:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25); /* زيادة تأثير الظل عند التمرير */
+    transform: translateY(-5px); /* رفع الفيديو عند التمرير */
+}
+        .video-container iframe {
+    border: 6px solid #ffffff;  /* إضافة حافة حول الفيديو */
+    border-radius: 20px; /* حواف دائرية لتناسب الفريم */
+}
+
+        .section {
+            padding: 3rem 1rem;
+            text-align: center;
+        }
+        .team-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 2rem;
+  justify-content: center;
+}
+
+.poster-grid, .testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  justify-content: center;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+
+        }
+        .card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s;
+        }
+        .card img {
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            margin: 0 auto 1rem;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+                .poster-card {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%; /* يخلي الكارت يتمدد حسب الطول الكامل */
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+            padding: 1.5rem;
+            transition: transform 0.3s;
+            min-height: 460px;
+        }
+                .poster-card img {
+                    width: 100%;
+            height: auto;
+            max-height: 280px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            flex-shrink: 0;
+                }
+                .poster-card h3 {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        .poster-card p {
+            flex-grow: 1;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+        .poster-card a {
+            margin-top: auto;
+        }
+        /*الكود ده عشان زرار التحميل فقط */
+        a.download-btn {
+    font-size: 16px;
+    color: #1a73e8;
+    text-decoration: none;
+    padding: 8px 16px;
+    border: 1px solid #1a73e8;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+a.download-btn:hover {
+    background-color: #1a73e8;
+    color: white;
+}/*ينتهي هنا*/
+
+        .footer-logos {
+            display: flex;
+            justify-content: center;
+            gap: 200px;
+            padding: 0rem;
+            background: white;
+        }
+        .footer-img {
+            width: 120px; /* ممكن تزودها لـ 120 أو 150 حسب الشكل */
+            height: auto;
+            object-fit: contain;
+            transition: transform 0.3s ease;
+        }
+        .footer-logo {
+            max-width: 200px;
+            height: auto;
+            transition: transform 0.3s ease;
+        }
+        .footer-img:hover {
+          transform: scale(1.1);
+        }
+        .footer-logos img {
+            width: 100px;
+        }
+        footer {
+            background: white;
+            text-align: center;
+            padding: 0rem;
+            font-size: 0.9rem;
+            color: #666;
+            }
+       /* تخصيص الوضع الليلي */
+.dark {
+    background-color: #2d3748; /* لون خلفية داكنة */
+    color: #edf2f7; /* نص أبيض فاتح */
+    transition: background-color 0.3s ease, color 0.3s ease; /* تأثير الانتقال بين الألوان */
+}
+
+/* تخصيص الوضع الليلي في العناصر الأخرى */
+.dark .navbar {
+    background: linear-gradient(90deg, #4e8c5d, #6b1a6d);
+}
+
+.dark .footer-logos {
+    background-color: #2d3748;
+  transition: background-color 0.3s ease;
+}
+
+.dark .footer-logos img {
+  filter: brightness(0.8); /* أو استخدم grayscale أو invert حسب اللي يناسبك */
+}
+
+.dark .hero {
+    background-color: #2d3748;
+}
+
+.dark .card h3 {
+    background-color: #2d3748;
+    color: #ffffff
+}
+
+.dark .button, .dark .navbar a:hover {
+    background-color: #4e8c5d;
+    color: white;
+}
+
+.dark #themeToggle {
+    background-color: #2d3748;
+    color: white;
+    border: 1px solid #4e8c5d;
+}
+
+/* تخصيص الـ footer في الوضع الداكن */
+.dark footer {
+  background-color: #2d3748; /* لون خلفية داكنة للتذييل */
+  color: #edf2f7; /* نص فاتح لتناسب الخلفية الداكنة */
+}
+
+/* تخصيص النص في الـ footer في الوضع الداكن */
+.dark footer p {
+  color: #edf2f7; /* تغيير النص إلى اللون الفاتح */
+}
+
+.dark .poster-card p {
+  color: #edf2f7; /* تغيير النص إلى اللون الفاتح */
+}
+
+.dark .testimonial-grid p {
+  color: #edf2f7; /* تغيير النص إلى اللون الفاتح */
+}
+/* تخصيص الأزرار في الوضع الداكن */
+.dark .button {
+    background: linear-gradient(90deg, #6b1a6d, #4e8c5d); /* تدرج ألوان مخصص */
+    color: white;
+    padding: 10px 20px;
+    border-radius: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.dark .button:hover {
+    background: linear-gradient(90deg, #4e8c5d, #6b1a6d);
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+
+#themeToggle:hover {
+    transform: rotate(180deg); /* الزر سيلتوي عند التمرير */
+    background-color: #4e8c5d; /* تغيير اللون عند التمرير */
+}
+
+#themeToggle {
+    padding: 8px 12px; /* زيادة المسافة حول الأيقونة */
+    border: 2px solid #4e8c5d; /* إضافة حدود حول الزر */
+    cursor: pointer; /* تغيير الشكل إلى يد عند التمرير */
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    .navbar ul {
+        display: none; /* إخفاء القائمة الافتراضية */
+    }
+    .navbar.active ul {
+        display: flex; /* عرض القائمة عندما يكون الزر مفعلاً */
+        flex-direction: column;
+    }
+
+    .navbar .hamburger {
+        display: block; /* إظهار زر الهامبرغر على الشاشات الصغيرة */
+        cursor: pointer;
+    }
+}
+    
+
+
+        .dark {
+            background-color: #1a202c;
+            color: #edf2f7;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .dark .card {
+            background-color: #2d3748;
+            color: rgb(11, 169, 159);
+        }
