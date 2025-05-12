@@ -7,7 +7,16 @@
   <title>Safe Use of Birth Control Pills</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
+
+<!-- Theme Toggle Button -->
+<div class="fixed top-4 right-4 z-50">
+  <button id="themeToggle" class="text-2xl p-2 rounded-full bg-gray-200 dark:bg-gray-700 hover:bg-purple-500 hover:text-white transition duration-300">
+    🌙
+  </button>
+</div>
+
 <body class="bg-white text-gray-900 font-sans leading-relaxed tracking-wide px-4 sm:px-6 md:px-8 lg:px-32 py-12">
 
   <!-- Back Button -->
@@ -25,7 +34,7 @@
     </p>
 
     <!-- Section: Why Safety Matters -->
-    <section class="mb-12">
+    <section class="mb-12" data-aos="fade-up">
       <h2 class="text-2xl font-semibold text-green-700 mb-4">Why Safety Matters</h2>
       <p class="mb-4">
         Birth control pills are widely used for family planning and hormonal regulation. However, prolonged or incorrect use can slightly increase the risk of developing breast cancer in some women, especially those with genetic predispositions or hormonal imbalances.
@@ -33,7 +42,7 @@
     </section>
 
     <!-- Section: Risk Factors -->
-    <section class="mb-12">
+    <section class="mb-12" data-aos="fade-up">
       <h2 class="text-2xl font-semibold text-red-600 mb-6">Key Risk Factors</h2>
       <div class="grid md:grid-cols-2 gap-6">
         <div class="bg-red-100 p-6 rounded-lg shadow-md">
@@ -56,7 +65,7 @@
     </section>
 
     <!-- Section: Safety Tips -->
-    <section class="mb-12">
+    <section class="mb-12" data-aos="fade-up">
       <h2 class="text-2xl font-semibold text-blue-700 mb-6">Safe Use Tips</h2>
       <ul class="list-disc pl-6 space-y-2 text-gray-800">
         <li>Consult a gynecologist before starting any birth control method.</li>
@@ -68,7 +77,7 @@
     </section>
 
     <!-- Section: Lifestyle Advice -->
-    <section class="mb-12">
+    <section class="mb-12" data-aos="fade-up">
       <h2 class="text-2xl font-semibold text-purple-700 mb-4">Additional Lifestyle Advice</h2>
       <p class="mb-4">
         Combining safe pill usage with a healthy lifestyle further reduces cancer risk. This includes:
@@ -90,13 +99,39 @@
     </section>
 
     <!-- Section: Final Note -->
-    <section class="mb-12">
+    <section class="mb-12" data-aos="fade-up">
       <h2 class="text-2xl font-semibold text-gray-800 mb-4">Final Note</h2>
       <p class="text-gray-700">
         Birth control pills are generally safe when used correctly. Stay informed, ask questions, and follow up with your doctor regularly to make the best decisions for your health.
       </p>
     </section>
   </div>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>AOS.init();</script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const toggleBtn = document.getElementById("themeToggle");
+    const root = document.documentElement;
+    const savedTheme = localStorage.getItem("theme");
+
+    if (savedTheme === "dark") {
+      root.classList.add("dark");
+      toggleBtn.textContent = "☀️";
+    } else {
+      root.classList.remove("dark");
+      toggleBtn.textContent = "🌙";
+    }
+
+    toggleBtn.addEventListener("click", () => {
+      root.classList.toggle("dark");
+      const isDark = root.classList.contains("dark");
+      toggleBtn.textContent = isDark ? "☀️" : "🌙";
+      localStorage.setItem("theme", isDark ? "dark" : "light");
+    });
+  });
+</script>
 
 </body>
 </html>
