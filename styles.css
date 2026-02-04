@@ -1078,15 +1078,19 @@ body {
 }
 
 .developer-card {
-  max-width: 450px;
+  max-width: 750px;
   margin: 0 auto;
   background: linear-gradient(145deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
   backdrop-filter: blur(20px);
   border-radius: var(--radius-xl);
-  padding: 3rem 2.5rem;
+  padding: 2.5rem 3rem;
   border: 1px solid rgba(255,255,255,0.15);
   position: relative;
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  text-align: left;
 }
 
 .developer-card::before {
@@ -1099,11 +1103,21 @@ body {
   background: var(--gradient-medical);
 }
 
+.developer-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.developer-right {
+  flex: 1;
+}
+
 .developer-image-wrapper {
   position: relative;
-  width: 140px;
-  height: 140px;
-  margin: 0 auto 1.5rem;
+  width: 150px;
+  height: 150px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1111,8 +1125,8 @@ body {
 
 .developer-glow {
   position: absolute;
-  width: 140px;
-  height: 140px;
+  width: 150px;
+  height: 150px;
   background: var(--gradient-medical);
   border-radius: 50%;
   opacity: 0.5;
@@ -1126,8 +1140,8 @@ body {
 }
 
 .developer-img {
-  width: 140px;
-  height: 140px;
+  width: 150px;
+  height: 150px;
   border-radius: 50%;
   object-fit: cover;
   position: relative;
@@ -1138,8 +1152,8 @@ body {
 
 .developer-ring {
   position: absolute;
-  width: 160px;
-  height: 160px;
+  width: 170px;
+  height: 170px;
   border: 2px dashed rgba(255,255,255,0.3);
   border-radius: 50%;
   animation: spin 20s linear infinite;
@@ -1154,7 +1168,7 @@ body {
   font-size: 1.75rem;
   font-weight: 800;
   color: white;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.25rem;
 }
 
 .developer-title {
@@ -1896,8 +1910,19 @@ footer .name {
   }
   
   .developer-card {
+    flex-direction: column;
+    text-align: center;
     padding: 2rem 1.25rem;
     max-width: 100%;
+    gap: 1.5rem;
+  }
+  
+  .developer-left {
+    gap: 1rem;
+  }
+  
+  .developer-right {
+    text-align: center;
   }
   
   .developer-image-wrapper {
@@ -1930,6 +1955,10 @@ footer .name {
   
   .developer-bio {
     font-size: 0.85rem;
+  }
+  
+  .developer-projects {
+    justify-content: center;
   }
   
   .project-tag {
