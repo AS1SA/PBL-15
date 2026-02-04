@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="PBL15-HUE - Medical Student Team Project on Breast Cancer Awareness">
+  <link rel="icon" type="image/png" href="ICON.webp">
+  <title>PBL15-HUE</title>
+  
+  <!-- Preconnect for faster loading -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
+  <!-- CSS Files -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- Navbar -->
+
+<nav class="navbar text-white py-4 px-6 shadow-md">
+  <div class="container mx-auto flex flex-row-reverse justify-between items-center">
+      <a href="#" class="text-2xl font-bold text-white order-1 md:order-none">PBL15-HUE</a>
+      <ul class="flex flex-wrap space-x-reverse space-x-5 order-2 md:order-none">
+      <li><a href="#" class="hover:underline text-white">Home</a></li>
+      <li><a href="#team" class="hover:underline text-white">Our Team</a></li>
+      <li><a href="#posters" class="hover:underline text-white">Poster</a></li>
+    </ul>
+    <button id="themeToggle" class="text-2xl p-2 rounded-full hover:bg-gray-300 dark:hover:bg-gray-600 transition" title="Toggle theme">
+      🌙
+  </button>
+  
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="hero text-center py-12" data-aos="fade-up">
+<div class="flex flex-col md:flex-row items-center justify-between">
+  <!-- Left Side (Video) -->
+  <!-- تحديث الـ iframe -->
+  <div class="video-container w-full max-w-xl mx-auto md:mr-6">
+<iframe id="mainVideo" width="100%" height="400" style="max-height: 400px;"
+    src="https://www.youtube.com/embed/h359I7CRFPs"
+    title="Presentation of PBL 15 in poster day"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    referrerpolicy="strict-origin-when-cross-origin"
+    allowfullscreen>
+</iframe>
+  </div>
+  
+  
+
+  <!-- Right Side (Logo, Text, Buttons) -->
+  <div class="right-side text-center md:text-left mb-8 md:mb-0">
+      <!-- Logo at the top, centered -->
+      <div class="logo-container mb-4">
+          <img src="ASSA2.png" alt="PBL15 HUE Logo" class="mx-auto mb-4">
+      </div>
+
+      <!-- Text under the logo -->
+      <p class="text-lg mb-4">Your gateway to learn about our medical team</p>
+
+      <!-- Buttons under the text -->
+      <div class="flex justify-end gap-4 mb-6">
+          <!-- زر Our Team -->
+          <a href="#team" class="bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 text-white py-3 px-8 rounded-full shadow-lg hover:bg-gradient-to-l hover:scale-105 hover:shadow-2xl transition-all duration-300">
+              Our Team
+          </a>
+          
+          <!-- زر Our Poster -->
+          <a href="#posters" class="bg-gradient-to-r from-green-500 via-green-600 to-green-700 text-white py-3 px-8 rounded-full shadow-lg hover:bg-gradient-to-l hover:scale-105 hover:shadow-2xl transition-all duration-300">
+              Our Poster
+          </a>
+      </div>
+  </div>
+</div>
+</section>
+
+<!-- Team Members Section -->
+<section id="team" class="section"data-aos="fade-up">
+  <h2 class="section-title mb-6">
+      <span class="colorful-word">Members</span>
+      <span class="colorful-word">Team</span>
+    </h2>          
+  <div class="container mx-auto space-y-10">
+      <div class="flex justify-center flex-wrap gap-6">
+          <div class="team-card">
+              <img src="ASMAA.webp" alt="Asmaa" loading="lazy">
+              <h3 class="font-bold">Asmaa<br>Abd Elhammid</h3>
+          </div>
+          <div class="team-card">
+              <img src="HANIN.webp" alt="Hanin" loading="lazy">
+              <h3 class="font-bold">Hanin<br>Elbaqary</h3>
+          </div>
+          <div class="team-card">
+              <img src="HABIBA.webp" alt="Habiba" loading="lazy">
+              <h3 class="font-bold">Habiba<br>sameh</h3>
+          </div>
+          <div class="team-card">
+              <img src="MAI.webp" alt="Mai" loading="lazy">
+              <h3 class="font-bold">Mai<br>Al Saad</h3>
+          </div>
+          <div class="team-card">
+              <img src="JANA.webp" alt="Janah" loading="lazy">
+              <h3 class="font-bold">Janah<br>Sameh</h3>
+          </div>
+          <div class="team-card">
+              <img src="AYA.webp" alt="Aya" loading="lazy">
+              <h3 class="font-bold">Aya<br>Elshrbeny</h3>
+          </div>
+          <div class="flex justify-center flex-wrap gap-6">
+              <div class="team-card">
+          <img src="Ebrahim.webp" alt="Ebrahim" loading="lazy">
+          <h3 class="font-bold">Ebrahim<br>Salama</h3>
+      </div>
+      <div class="team-card">
+          <img src="AHMED.webp" alt="Ahmed" loading="lazy">
+          <h3 class="font-bold">Ahmed<br>Elzokm</h3>
+      </div>
+      <div class="team-card">
+          <img src="ABDULRAHMAN.webp" alt="Abdelrahman" loading="lazy">
+          <h3 class="font-bold">Abdelrahman<br>Elgharib</h3>
+      </div>
+      <div class="team-card">
+          <img src="KHALED.webp" alt="Khaled" loading="lazy">
+          <h3 class="font-bold">Khaled<br>Elsherbiny</h3>
+      </div>
+      <div class="team-card">
+          <img src="TMAM.webp" alt="Ahmed Tmam" loading="lazy">
+          <h3 class="font-bold">Ahmed<br>Tmam</h3>
+      </div>
+  </div>
+</section>
+
+<!-- Poster Section -->
+<section id="posters" class="section" data-aos="fade-up">
+  <h2 class="section-title mb-6">
+      <span class="colorful-word">Poster</span>
+      <span class="colorful-word">Our</span>
+    </h2>
+  <p class="text-lg mb-6">Our latest work is about breast cancer</p>
+  <div class="poster-grid container mx-auto">
+
+      <div class="poster-card card">
+          <img src="Final Poster. V9.webp" alt="Poster" loading="lazy">
+          <h3 class="font-bold mt-4">Poster</h3>
+          <p class="text-sm mb-4">This poster talks about Hormonal Contraception and Breast Cancer Risk for Carriers of Germline Mutations in BRCA1 and BRCA2</p>
+          <div class="flex flex-col gap-3 mt-4">
+              <a href="https://drive.google.com/file/d/1x7s_WxlS5_FEKXyllbTpupHIG5dc2wIl/view?usp=sharing" target="_blank" 
+             class="bg-gradient-to-r from-green-500 via-green-600 to-green-700 text-white py-3 px-6 rounded-lg shadow-lg transition-all duration-300 transform hover:scale-105 hover:shadow-xl flex items-center justify-center gap-2">
+              <span class="material-icons">open_in_new</span> Click to view
+          </a>
+          <a href="https://drive.google.com/uc?export=download&id=1x7s_WxlS5_FEKXyllbTpupHIG5dc2wIl" download class="bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 text-white py-3 px-6 rounded-lg shadow-lg transition-all duration-300 transform hover:scale-105 hover:shadow-xl flex items-center justify-center gap-2">
+              <span class="material-icons">download</span>Download PDF
+          </a>
+          <div class="share-buttons flex gap-4 mt-4 justify-center">
+              <!-- زر مشاركة فيسبوك -->
+              <a href="https://www.facebook.com/sharer/sharer.php?u=https://drive.google.com/file/d/1x7s_WxlS5_FEKXyllbTpupHIG5dc2wIl/view?usp=sharing" target="_blank"
+                 class="bg-blue-600 text-white rounded-full p-4 hover:bg-blue-700 transition flex items-center justify-center w-12 h-12">
+                <i class="fab fa-facebook-f text-xl"></i>
+              </a>
+              
+              <!-- زر مشاركة تويتر -->
+              <a href="https://twitter.com/intent/tweet?url=https://drive.google.com/file/d/1x7s_WxlS5_FEKXyllbTpupHIG5dc2wIl/view?usp=sharing&text=Check this out!" target="_blank"
+                 class="bg-blue-400 text-white rounded-full p-4 hover:bg-blue-500 transition flex items-center justify-center w-12 h-12">
+                <i class="fab fa-twitter text-xl"></i>
+              </a>
+              
+              <!-- زر مشاركة واتساب -->
+              <a href="https://api.whatsapp.com/send?text=Check this out: https://drive.google.com/file/d/1x7s_WxlS5_FEKXyllbTpupHIG5dc2wIl/view?usp=sharing" target="_blank"
+                 class="bg-green-500 text-white rounded-full p-4 hover:bg-green-600 transition flex items-center justify-center w-12 h-12">
+                <i class="fab fa-whatsapp text-xl"></i>
+              </a>
+            </div>
+            
+      </div>
+          
+
+      </div>
+      <div class="poster-card card">
+          <img src="BRUSHOR.webp" alt="Brochure" loading="lazy">
+          <h3 class="font-bold mt-4">Brochure</h3>
+          <p class="text-sm mb-4">This brochure talks about how to avoid breast cancer, the mechanism of self-examination and others. These tips also come in simple language so that the general public can benefit from what is written in it </p>
+          <div class="flex flex-col gap-3 mt-4">
+              <a href="https://drive.google.com/file/d/1Ic8GqPsmSvK5vIc2-7sHDjRN-pUpp-66/view?usp=sharing" target="_blank" 
+             class="bg-gradient-to-r from-green-500 via-green-600 to-green-700 text-white py-3 px-6 rounded-lg shadow-lg transition-all duration-300 transform hover:scale-105 hover:shadow-xl flex items-center justify-center gap-2">
+              <span class="material-icons">open_in_new</span> Click to view
+          </a>
+          <a href="https://drive.google.com/uc?export=download&id=1Ic8GqPsmSvK5vIc2-7sHDjRN-pUpp-66" download class="bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 text-white py-3 px-6 rounded-lg shadow-lg transition-all duration-300 transform hover:scale-105 hover:shadow-xl flex items-center justify-center gap-2">
+              <span class="material-icons">download</span>Download PDF
+          </a>
+          <div class="share-buttons flex gap-4 mt-4 justify-center">
+              <!-- زر مشاركة فيسبوك -->
+              <a href="https://www.facebook.com/sharer/sharer.php?u=https://drive.google.com/file/d/1Ic8GqPsmSvK5vIc2-7sHDjRN-pUpp-66/view?usp=sharing" target="_blank"
+                 class="bg-blue-600 text-white rounded-full p-4 hover:bg-blue-700 transition flex items-center justify-center w-12 h-12">
+                <i class="fab fa-facebook-f text-xl"></i>
+              </a>
+              
+              <!-- زر مشاركة تويتر -->
+              <a href="https://twitter.com/intent/tweet?url=https://drive.google.com/file/d/1Ic8GqPsmSvK5vIc2-7sHDjRN-pUpp-66/view?usp=sharing&text=Check this out!" target="_blank"
+                 class="bg-blue-400 text-white rounded-full p-4 hover:bg-blue-500 transition flex items-center justify-center w-12 h-12">
+                <i class="fab fa-twitter text-xl"></i>
+              </a>
+              
+              <!-- زر مشاركة واتساب -->
+              <a href="https://api.whatsapp.com/send?text=Check this out: https://drive.google.com/file/d/1Ic8GqPsmSvK5vIc2-7sHDjRN-pUpp-66/view?usp=sharing" target="_blank"
+                 class="bg-green-500 text-white rounded-full p-4 hover:bg-green-600 transition flex items-center justify-center w-12 h-12">
+                <i class="fab fa-whatsapp text-xl"></i>
+              </a>
+            </div>
+            
+      </div>
+      </div>
+
+
+      <div class="poster-card card">
+          <img src="PAPER.webp" alt="Paper" loading="lazy">
+          <h3 class="font-bold mt-4">Paper</h3>
+          <p class="text-sm mb-4">This is the paper used to make the poster.</p>
+          <div class="flex flex-col gap-3 mt-4"> 
+              <a href="https://drive.google.com/file/d/16kKNqvAwjzSpPwamBc_YQpl4U6V5CvoO/view?usp=drive_link" target="_blank" 
+             class="bg-gradient-to-r from-green-500 via-green-600 to-green-700 text-white py-3 px-6 rounded-lg shadow-lg transition-all duration-300 transform hover:scale-105 hover:shadow-xl flex items-center justify-center gap-2">
+              <span class="material-icons">open_in_new</span> Click to view
+          </a>
+          <a href="https://drive.google.com/uc?export=download&id=16kKNqvAwjzSpPwamBc_YQpl4U6V5CvoO" download class="bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 text-white py-3 px-6 rounded-lg shadow-lg transition-all duration-300 transform hover:scale-105 hover:shadow-xl flex items-center justify-center gap-2">
+              <span class="material-icons">download</span>Download PDF
+          </a>
+          <div class="share-buttons flex gap-4 mt-4 justify-center">
+              <!-- زر مشاركة فيسبوك -->
+              <a href="https://www.facebook.com/sharer/sharer.php?u=https://drive.google.com/file/d/16kKNqvAwjzSpPwamBc_YQpl4U6V5CvoO/view?usp=drive_link" target="_blank"
+                 class="bg-blue-600 text-white rounded-full p-4 hover:bg-blue-700 transition flex items-center justify-center w-12 h-12">
+                <i class="fab fa-facebook-f text-xl"></i>
+              </a>
+              
+              <!-- زر مشاركة تويتر -->
+              <a href="https://twitter.com/intent/tweet?url=https://drive.google.com/file/d/16kKNqvAwjzSpPwamBc_YQpl4U6V5CvoO/view?usp=drive_link&text=Check this out!" target="_blank"
+                 class="bg-blue-400 text-white rounded-full p-4 hover:bg-blue-500 transition flex items-center justify-center w-12 h-12">
+                <i class="fab fa-twitter text-xl"></i>
+              </a>
+              
+              <!-- زر مشاركة واتساب -->
+              <a href="https://api.whatsapp.com/send?text=Check this out: https://drive.google.com/file/d/16kKNqvAwjzSpPwamBc_YQpl4U6V5CvoO/view?usp=drive_link" target="_blank"
+                 class="bg-green-500 text-white rounded-full p-4 hover:bg-green-600 transition flex items-center justify-center w-12 h-12">
+                <i class="fab fa-whatsapp text-xl"></i>
+              </a>
+            </div>
+            
+      </div>
+      </div>
+  </div>
+</section>
+
+<!-- Articles Section -->
+<section class="section" data-aos="fade-up">
+  <h2 class="section-title mb-6">
+      <span class="colorful-word">Articles</span>
+      <span class="colorful-word">Our</span>
+  </h2>
+  <p class="text-lg mb-6">Explore our informative content on breast cancer awareness and prevention.</p>
+  
+  <div class="testimonial-grid container mx-auto">
+      <div class="card">
+          <img src="BRCA_ARTICLE.webp" alt="BRCA Article" loading="lazy">
+          <h3 class="font-bold mt-4">Hormonal Contraception & BRCA</h3>
+          <p class="text-sm mb-4">An overview of how birth control affects breast and ovarian cancer risk in BRCA mutation carriers.</p>
+         <a href="Articles/brca.html" target="_blank" class="bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 text-white py-2 px-4 rounded-full shadow-md hover:scale-105 transition-all duration-300 inline-block mt-2">
+    Read Full Article
+</a>
+
+      </div>
+    
+<div class="card">
+  <img src="R.jpeg" alt="Pill Safety Article" loading="lazy">
+  <h3 class="font-bold mt-4">Safe Use of Birth Control Pills</h3>
+  <p class="text-sm mb-4">Practical tips to use birth control safely and reduce the risk of breast cancer.</p>
+  <a href="Articles/safe birth control.html" target="_blank" class="bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 text-white py-2 px-4 rounded-full shadow-md hover:scale-105 transition-all duration-300 inline-block mt-2">
+    Read Full Article
+  </a>
+</div>
+
+<div class="card">
+  <img src="BCS.jpg" alt="Breast Cancer Progression" loading="lazy">
+  <h3 class="font-bold mt-4">Breast Cancer Progression & Birth Control</h3>
+  <p class="text-sm mb-4">Explore how hormonal birth control may influence breast cancer stages and progression over time.</p>
+  <a href="Articles/breast cancer progression.html" target="_blank" class="bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 text-white py-2 px-4 rounded-full shadow-md hover:scale-105 transition-all duration-300 inline-block mt-2">
+    Read Full Article
+  </a>
+</div>
+
+    
+  </div>
+</section>
+
+        <!-- Memories Section -->
+<section id="memories" class="section" data-aos="fade-up" style="padding: 2rem; max-width: 1100px; margin: auto;">
+  <h2 class="section-title mb-6" >
+    <span class="colorful-word">Memories</span>
+    <span class="colorful-word">Our</span>
+  </h2>
+  
+  <!-- Video Container -->
+  <div class="video-container mx-auto mb-12 rounded-lg overflow-hidden border-4 border-green-300" style="max-width: 100%;">
+<iframe width="100%" height="400"
+    src="https://www.youtube.com/embed/_WfZRyMDHLA"
+    title="Memories of the Poster Day"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    referrerpolicy="strict-origin-when-cross-origin"
+    allowfullscreen>
+</iframe>
+  </div>
+  
+  <!-- Image Gallery in a card -->
+  <div class="gallery-card" style="background: #1F2937; padding: 1rem; border-radius: 1rem; box-shadow: 0 8px 20px rgb(0 0 0 / 0.5); max-width: 1200px; margin: auto;">
+    <div class="carousel-wrapper" style="position: relative;">
+      <button id="prevBtn" aria-label="Previous" 
+        style="position: absolute; top: 50%; left: 0; transform: translateY(-50%); z-index: 10; 
+               background: rgba(255,255,255,0.8); border:none; color:#333; font-size: 2rem; padding: 0 14px; cursor: pointer; 
+               border-radius: 0 8px 8px 0; box-shadow: 0 0 5px rgba(0,0,0,0.2); transition: background 0.3s;">
+        &#10094;
+      </button>
+      <button id="nextBtn" aria-label="Next" 
+        style="position: absolute; top: 50%; right: 0; transform: translateY(-50%); z-index: 10; 
+               background: rgba(255,255,255,0.8); border:none; color:#333; font-size: 2rem; padding: 0 14px; cursor: pointer; 
+               border-radius: 8px 0 0 8px; box-shadow: 0 0 5px rgba(0,0,0,0.2); transition: background 0.3s;">
+        &#10095;
+      </button>
+      
+      <div class="carousel" style="overflow: hidden; scroll-behavior: smooth;">
+        <div class="carousel-track">
+          <img src="Come Soon.jpg" alt="Coming Soon" class="rounded-lg shadow-md cursor-pointer" loading="lazy" onclick="openModal('Come Soon.jpg')">
+          <img src="Come Soon.jpg" alt="Coming Soon" class="rounded-lg shadow-md cursor-pointer" loading="lazy" onclick="openModal('Come Soon.jpg')">
+          <img src="Come Soon.jpg" alt="Coming Soon" class="rounded-lg shadow-md cursor-pointer" loading="lazy" onclick="openModal('Come Soon.jpg')">
+          <img src="Come Soon.jpg" alt="Coming Soon" class="rounded-lg shadow-md cursor-pointer" loading="lazy" onclick="openModal('Come Soon.jpg')">
+          <img src="Come Soon.jpg" alt="Coming Soon" class="rounded-lg shadow-md cursor-pointer" loading="lazy" onclick="openModal('Come Soon.jpg')">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Modal for enlarged image -->
+<div id="modal" class="modal" onclick="if(event.target === this) closeModal()">
+  <img id="modalImg" src="" alt="Enlarged image">
+  <button onclick="closeModal()" class="modal-close" aria-label="Close modal">&times;</button>
+</div>
+
+<!-- Contact Section -->
+<section id="contact" class="section" data-aos="fade-up">
+  <h2 class="section-title mb-6">
+    <span class="colorful-word">Us</span>
+    <span class="colorful-word">Contact</span>
+  </h2>
+  <p class="text-lg mb-6 text-gray-800 dark:text-white" style="color: inherit;">
+    👇You can reach us on Telegram using the button below
+  </p>
+  <div class="flex justify-center">
+    <a href="https://t.me/pbl15_support_bot" target="_blank"
+       class="bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 dark:from-green-600 dark:via-green-700 dark:to-green-800 text-white py-3 px-8 rounded-full shadow-lg hover:scale-105 transition-all duration-300 flex items-center gap-2 text-xl">
+      <i class="fab fa-telegram-plane"></i> Chat with us on Telegram
+    </a>
+  </div>
+</section>
+
+
+<!-- Footer Logos -->
+<div class="footer-logos">
+  <img src="LOGO MEDICIN.webp" alt="HUE Logo" class="footer-img" loading="lazy">
+</div>
+<!--
+<div class="footer-logos" data-aos="fade-up">
+<img src="LOGO HUE.png" alt="HUE Logo" class="footer-img">
+<img src="LOGO MEDICIN.webp" alt="HUE Logo" class="footer-img">
+<img src="LOGO.png" alt="PBL15 Logo" class="footer-img">
+<img src="LOGO MEDICIN.webp" alt="HUE Logo" class="footer-img">
+<img src="LOGO HUE.png" alt="HUE Logo" class="footer-img">
+</div>
+-->
+<!-- Footer -->
+<footer>
+  <p>❤️This site is Made by/ Abdelrahman Elgharib❤️ <br> Think about yesterday, dream of the future, but live in the present <br> &copy; 2025. All Rights Reserved PBL15-HUE</p>
+</footer>
+
+<!-- Welcome Popup -->
+<div id="welcomePopup" class="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50 hidden">
+  <div class="bg-white dark:bg-gray-800 text-center p-6 rounded-lg shadow-lg max-w-sm w-full mx-auto">
+    <img src="Group photo.webp" alt="Welcome Image" class="w-full h-32 object-cover rounded-t-lg mb-4" loading="eager">
+    <h2 class="text-2xl font-bold mb-2 text-purple-700 dark:text-green-300">Welcome to PBL15-HUE! 🌟</h2>
+    <p class="text-gray-600 dark:text-gray-300 mb-4">We're so glad you visited our site! Here you'll find the journey we took to create the poster and everything else we did. 😍😍</p>
+    <button onclick="closePopup()" class="bg-purple-700 hover:bg-purple-800 text-white px-4 py-2 rounded">Start browsing</button>
+  </div>
+</div>
+
+<!-- Back to Top Button -->
+<button id="backToTopBtn" class="back-to-top-btn" aria-label="Back to top">↑</button>
+
+<!-- Scripts - Loaded at end for better performance -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
+<script src="scripts.js" defer></script>
+</body>
+</html>

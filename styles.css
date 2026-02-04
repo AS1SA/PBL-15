@@ -1,0 +1,558 @@
+/* ============================================
+   PBL15-HUE Main Stylesheet
+   ============================================ */
+
+/* ---------- Base Styles ---------- */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #e6f4f1;
+  color: #333;
+}
+
+/* ---------- Back to Top Button ---------- */
+.back-to-top-btn {
+  position: fixed;
+  bottom: 40px;
+  right: 30px;
+  background-color: #6b46c1;
+  color: white;
+  border: none;
+  border-radius: 100%;
+  padding: 5px 16px;
+  font-size: 24px;
+  cursor: pointer;
+  display: none;
+  z-index: 999;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.back-to-top-btn:hover {
+  background-color: #553c9a;
+  transform: scale(1.1);
+}
+
+/* ---------- Navbar ---------- */
+.navbar {
+  background: linear-gradient(90deg, #7a2983, #078742);
+  color: white;
+  padding: 0.2rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* ---------- Hero Section ---------- */
+.hero {
+  text-align: center;
+  padding: 4rem 1rem;
+}
+
+.hero .right-side {
+  margin-left: 9rem;
+}
+
+.hero .right-side .flex {
+  justify-content: flex-start;
+  margin-right: 35%;
+}
+
+.hero p {
+  margin-top: -80px;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #007bff;
+}
+
+.hero img {
+  width: 500px;
+  margin-bottom: 1rem;
+  transform: translateX(-60px);
+}
+
+/* ---------- Video Container ---------- */
+.video-container {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  border: 12px solid #a2ddb5;
+  border-radius: 30px;
+  padding: 2px;
+  box-shadow: 0 20px 10px rgba(0, 0, 0, 0.15);
+  background-color: #fff;
+  transition: all 0.3s ease;
+}
+
+.video-container:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  transform: translateY(-5px);
+}
+
+.video-container iframe {
+  border: 6px solid #ffffff;
+  border-radius: 20px;
+}
+
+/* ---------- Section Styles ---------- */
+.section {
+  padding: 3rem 1rem;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 3rem;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.colorful-word:nth-child(1) {
+  color: #7a2983;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.colorful-word:nth-child(2) {
+  color: #078742;
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ---------- Team Cards ---------- */
+.team-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s;
+  width: 190px;
+  text-align: center;
+}
+
+.team-card:hover {
+  transform: translateY(-10px);
+}
+
+.team-card img {
+  border-radius: 50%;
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+  margin: 0 auto 1rem;
+}
+
+.team-card h3 {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+/* ---------- Grid Layouts ---------- */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 2rem;
+  justify-content: center;
+}
+
+.poster-grid,
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  justify-content: center;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ---------- Cards ---------- */
+.card {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s;
+}
+
+.card img {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  margin: 0 auto 1rem;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+/* ---------- Poster Cards ---------- */
+.poster-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+  padding: 1.5rem;
+  transition: transform 0.3s;
+  min-height: 460px;
+}
+
+.poster-card img {
+  width: 100%;
+  height: auto;
+  max-height: 280px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  flex-shrink: 0;
+}
+
+.poster-card h3 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.poster-card p {
+  flex-grow: 1;
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+}
+
+.poster-card a {
+  margin-top: auto;
+}
+
+/* ---------- Download Button ---------- */
+a.download-btn {
+  font-size: 16px;
+  color: #1a73e8;
+  text-decoration: none;
+  padding: 8px 16px;
+  border: 1px solid #1a73e8;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+a.download-btn:hover {
+  background-color: #1a73e8;
+  color: white;
+}
+
+/* ---------- Footer ---------- */
+.footer-logos {
+  display: flex;
+  justify-content: center;
+  gap: 200px;
+  padding: 0rem;
+  background: white;
+}
+
+.footer-img {
+  width: 120px;
+  height: auto;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.footer-logo {
+  max-width: 200px;
+  height: auto;
+  transition: transform 0.3s ease;
+}
+
+.footer-img:hover {
+  transform: scale(1.1);
+}
+
+.footer-logos img {
+  width: 100px;
+}
+
+footer {
+  background: white;
+  text-align: center;
+  padding: 0rem;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* ---------- Theme Toggle Button ---------- */
+#themeToggle {
+  padding: 8px 12px;
+  border: 2px solid #4e8c5d;
+  cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+#themeToggle:hover {
+  transform: rotate(180deg);
+  background-color: #4e8c5d;
+}
+
+/* ---------- Gallery/Carousel ---------- */
+.gallery-card {
+  background: #1F2937;
+  padding: 1rem;
+  border-radius: 1rem;
+  box-shadow: 0 8px 20px rgb(0 0 0 / 0.5);
+  max-width: 1200px;
+  margin: auto;
+}
+
+.carousel-wrapper {
+  position: relative;
+}
+
+.carousel {
+  overflow: hidden;
+  scroll-behavior: smooth;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 1rem;
+}
+
+.carousel-track img {
+  flex: 0 0 auto;
+  width: 300px;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  background: rgba(255,255,255,0.8);
+  border: none;
+  color: #333;
+  font-size: 2rem;
+  padding: 0 14px;
+  cursor: pointer;
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
+  transition: background 0.3s;
+}
+
+.carousel-btn:hover {
+  background: rgba(255,255,255,1);
+}
+
+.carousel-btn.prev {
+  left: 0;
+  border-radius: 0 8px 8px 0;
+}
+
+.carousel-btn.next {
+  right: 0;
+  border-radius: 8px 0 0 8px;
+}
+
+/* ---------- Modal ---------- */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.95);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.modal img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 20px rgba(0,0,0,0.9);
+}
+
+.modal-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 3rem;
+  color: white;
+  background: rgba(0,0,0,0.7);
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(0,0,0,0.8);
+  z-index: 10000;
+}
+
+/* ============================================
+   Dark Mode Styles
+   ============================================ */
+.dark {
+  background-color: #1a202c;
+  color: #edf2f7;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dark .navbar {
+  background: linear-gradient(90deg, #4e8c5d, #6b1a6d);
+}
+
+.dark .hero {
+  background-color: #2d3748;
+}
+
+.dark .card {
+  background-color: #2d3748;
+  color: rgb(11, 169, 159);
+}
+
+.dark .card h3 {
+  background-color: #2d3748;
+  color: #ffffff;
+}
+
+.dark .team-card {
+  background-color: #2d3748;
+  color: #ffffff;
+  box-shadow: 0 6px 12px rgba(255, 255, 255, 0.1);
+}
+
+.dark .team-card h3 {
+  color: #ffffff;
+}
+
+.dark .poster-card p,
+.dark .testimonial-grid p {
+  color: #edf2f7;
+}
+
+.dark .footer-logos {
+  background-color: #2d3748;
+  transition: background-color 0.3s ease;
+}
+
+.dark .footer-logos img {
+  filter: brightness(0.8);
+}
+
+.dark footer {
+  background-color: #2d3748;
+  color: #edf2f7;
+}
+
+.dark footer p {
+  color: #edf2f7;
+}
+
+.dark .button,
+.dark .navbar a:hover {
+  background-color: #4e8c5d;
+  color: white;
+}
+
+.dark .button {
+  background: linear-gradient(90deg, #6b1a6d, #4e8c5d);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 30px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.dark .button:hover {
+  background: linear-gradient(90deg, #4e8c5d, #6b1a6d);
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+.dark #themeToggle {
+  background-color: #2d3748;
+  color: white;
+  border: 1px solid #4e8c5d;
+}
+
+/* Dark Mode - Welcome Popup */
+.dark #welcomePopup .bg-white {
+  background-color: #2d3748 !important;
+  color: #edf2f7;
+}
+
+.dark #welcomePopup h2 {
+  color: #38a169;
+}
+
+.dark #welcomePopup p {
+  color: #e2e8f0;
+}
+
+.dark #welcomePopup button {
+  background-color: #4e8c5d;
+  color: white;
+}
+
+.dark #welcomePopup button:hover {
+  background-color: #38a169;
+}
+
+/* ============================================
+   Responsive Design
+   ============================================ */
+@media (max-width: 768px) {
+  .navbar ul {
+    display: none;
+  }
+  
+  .navbar.active ul {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .navbar .hamburger {
+    display: block;
+    cursor: pointer;
+  }
+
+  .carousel-track img {
+    width: 200px !important;
+  }
+
+  .hero .right-side {
+    margin-left: 0;
+  }
+
+  .hero .right-side .flex {
+    margin-right: 0;
+    justify-content: center;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .team-card {
+    width: 150px;
+    padding: 1rem;
+  }
+
+  .team-card img {
+    width: 100px;
+    height: 100px;
+  }
+}
