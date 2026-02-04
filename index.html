@@ -340,9 +340,9 @@
         <div class="article-card-content">
           <h3>Hormonal Contraception & BRCA</h3>
           <p>An in-depth overview of how birth control affects breast and ovarian cancer risk in BRCA mutation carriers.</p>
-          <a href="Articles/brca.html" class="article-link">
+          <button onclick="openArticleModal('brca')" class="article-link">
             Read Article <i class="fas fa-arrow-right"></i>
-          </a>
+          </button>
         </div>
       </div>
 
@@ -353,9 +353,9 @@
         <div class="article-card-content">
           <h3>Safe Use of Birth Control Pills</h3>
           <p>Practical tips and guidelines to use birth control safely while minimizing breast cancer risk.</p>
-          <a href="Articles/safe birth control.html" class="article-link">
+          <button onclick="openArticleModal('safe')" class="article-link">
             Read Article <i class="fas fa-arrow-right"></i>
-          </a>
+          </button>
         </div>
       </div>
 
@@ -366,9 +366,9 @@
         <div class="article-card-content">
           <h3>Cancer Progression & Birth Control</h3>
           <p>Explore how hormonal birth control may influence breast cancer stages and progression over time.</p>
-          <a href="Articles/breast cancer progression.html" class="article-link">
+          <button onclick="openArticleModal('progression')" class="article-link">
             Read Article <i class="fas fa-arrow-right"></i>
-          </a>
+          </button>
         </div>
       </div>
     </div>
@@ -488,6 +488,18 @@
   <div id="modal" class="modal" onclick="if(event.target === this) closeModal()">
     <img id="modalImg" src="" alt="Enlarged image">
     <button class="modal-close" onclick="closeModal()" aria-label="Close">&times;</button>
+  </div>
+
+  <!-- Article Modal -->
+  <div id="articleModal" class="article-modal" onclick="if(event.target === this) closeArticleModal()">
+    <div class="article-modal-content">
+      <button class="article-modal-close" onclick="closeArticleModal()" aria-label="Close">
+        <i class="fas fa-times"></i>
+      </button>
+      <div id="articleModalBody" class="article-modal-body">
+        <!-- Article content will be loaded here -->
+      </div>
+    </div>
   </div>
 
   <!-- Back to Top Button -->
