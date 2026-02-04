@@ -1,50 +1,416 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth dark">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Learn about the relationship between hormonal birth control and cancer risk for BRCA1/BRCA2 mutation carriers.">
   <link rel="icon" type="image/png" href="../ICON.webp">
-  <title>Hormonal Contraception & BRCA</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <title>Hormonal Contraception & BRCA | PBL15-HUE</title>
+  
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  
+  <style>
+    :root {
+      --primary: #0d9488;
+      --primary-light: #5eead4;
+      --secondary: #7c3aed;
+      --accent: #f472b6;
+      --bg-dark: #0f172a;
+      --bg-card: #1e293b;
+      --text-primary: #f1f5f9;
+      --text-secondary: #94a3b8;
+      --gradient: linear-gradient(135deg, #0d9488 0%, #7c3aed 100%);
+      --radius: 16px;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg-dark);
+      color: var(--text-primary);
+      line-height: 1.8;
+      min-height: 100vh;
+    }
+    
+    /* Background Pattern */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: -1;
+      background: 
+        radial-gradient(circle at 20% 20%, rgba(13, 148, 136, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(124, 58, 237, 0.15) 0%, transparent 50%);
+    }
+    
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+    }
+    
+    /* Back Button */
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--gradient);
+      color: white;
+      padding: 0.875rem 1.75rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 20px rgba(13, 148, 136, 0.4);
+      margin-bottom: 2rem;
+    }
+    
+    .back-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 30px rgba(13, 148, 136, 0.5);
+    }
+    
+    /* Article Header */
+    .article-header {
+      margin-bottom: 3rem;
+    }
+    
+    .article-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(13, 148, 136, 0.2);
+      padding: 0.5rem 1rem;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--primary-light);
+      margin-bottom: 1rem;
+      border: 1px solid rgba(13, 148, 136, 0.3);
+    }
+    
+    .article-title {
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 800;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+    
+    .article-intro {
+      font-size: 1.15rem;
+      color: var(--text-secondary);
+      line-height: 1.8;
+    }
+    
+    /* Section Styles */
+    .section {
+      margin-bottom: 3rem;
+    }
+    
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--primary-light);
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    
+    .section-title i {
+      color: var(--secondary);
+    }
+    
+    /* Cards Grid */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+    
+    .card {
+      background: var(--bg-card);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      border: 1px solid rgba(255,255,255,0.05);
+      transition: all 0.3s ease;
+    }
+    
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+    }
+    
+    .card-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .card-title.brca1 { color: var(--secondary); }
+    .card-title.brca2 { color: var(--primary-light); }
+    .card-title.benefit { color: #4ade80; }
+    .card-title.risk { color: #f87171; }
+    
+    .card ul {
+      list-style: none;
+      padding: 0;
+    }
+    
+    .card li {
+      padding: 0.5rem 0;
+      padding-left: 1.5rem;
+      position: relative;
+      color: var(--text-secondary);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    
+    .card li:last-child {
+      border-bottom: none;
+    }
+    
+    .card li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--primary);
+    }
+    
+    /* Prevention Cards */
+    .prevention-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+    
+    .prevention-card {
+      background: var(--bg-card);
+      border-radius: var(--radius);
+      padding: 2rem 1.5rem;
+      text-align: center;
+      border: 1px solid rgba(255,255,255,0.05);
+      transition: all 0.3s ease;
+    }
+    
+    .prevention-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--primary);
+    }
+    
+    .prevention-icon {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: rgba(13, 148, 136, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1rem;
+      font-size: 1.5rem;
+      color: var(--primary-light);
+    }
+    
+    .prevention-card h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 1rem;
+    }
+    
+    .prevention-card ul {
+      text-align: left;
+      list-style: none;
+      padding: 0;
+    }
+    
+    .prevention-card li {
+      padding: 0.4rem 0;
+      padding-left: 1.25rem;
+      position: relative;
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+    }
+    
+    .prevention-card li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: #4ade80;
+    }
+    
+    /* Recommendations List */
+    .recommendations {
+      background: var(--bg-card);
+      border-radius: var(--radius);
+      padding: 2rem;
+      border: 1px solid rgba(255,255,255,0.05);
+    }
+    
+    .recommendations ul {
+      list-style: none;
+      padding: 0;
+    }
+    
+    .recommendations li {
+      padding: 1rem 0;
+      padding-left: 2.5rem;
+      position: relative;
+      color: var(--text-secondary);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    
+    .recommendations li:last-child {
+      border-bottom: none;
+    }
+    
+    .recommendations li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 1.25rem;
+      width: 24px;
+      height: 24px;
+      background: var(--gradient);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .recommendations li::after {
+      content: '✓';
+      position: absolute;
+      left: 6px;
+      top: 1.25rem;
+      color: white;
+      font-size: 0.75rem;
+    }
+    
+    .recommendations strong {
+      color: var(--text-primary);
+    }
+    
+    /* Discussion Section */
+    .discussion {
+      background: linear-gradient(135deg, rgba(124, 58, 237, 0.1), rgba(13, 148, 136, 0.1));
+      border-radius: var(--radius);
+      padding: 2rem;
+      border: 1px solid rgba(124, 58, 237, 0.2);
+    }
+    
+    .discussion ul {
+      list-style: none;
+      padding: 0;
+      display: grid;
+      gap: 0.75rem;
+    }
+    
+    .discussion li {
+      padding: 0.75rem 1rem;
+      background: rgba(0,0,0,0.2);
+      border-radius: 8px;
+      color: var(--text-secondary);
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    
+    .discussion li i {
+      color: var(--secondary);
+    }
+    
+    /* Footer */
+    .article-footer {
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      text-align: center;
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+    }
+    
+    .article-footer a {
+      color: var(--primary-light);
+      text-decoration: none;
+    }
+    
+    @media (max-width: 768px) {
+      .container {
+        padding: 1.5rem 1rem;
+      }
+      
+      .cards-grid,
+      .prevention-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
-
-<body class="bg-gray-900 text-white font-sans leading-relaxed tracking-wide px-4 sm:px-6 md:px-8 lg:px-32 py-12">
-
-  <!-- Back Button -->
-  <div class="max-w-5xl mx-auto px-4 mb-6">
-    <a href="../index.html" class="bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 text-white py-3 px-6 rounded-full shadow-lg hover:scale-105 transition-all duration-300 inline-block">
-      ← Back to Home
+<body>
+  <div class="container">
+    <!-- Back Button -->
+    <a href="../index.html" class="back-btn" data-aos="fade-right">
+      <i class="fas fa-arrow-left"></i> Back to Home
     </a>
-  </div>
-
-  <!-- Main Content -->
-  <div class="max-w-5xl mx-auto">
-    <!-- Title Section -->
-    <section data-aos="fade-up">
-      <h1 class="text-3xl sm:text-4xl font-bold text-purple-300 mb-4">Hormonal Contraception & BRCA Mutations</h1>
-      <p class="text-lg mb-10 text-gray-300">
-        This article explores the relationship between hormonal birth control and the risk of breast and ovarian cancer for women carrying BRCA1 or BRCA2 gene mutations.
+    
+    <!-- Article Header -->
+    <header class="article-header" data-aos="fade-up">
+      <span class="article-badge">
+        <i class="fas fa-dna"></i> Medical Research
+      </span>
+      <h1 class="article-title">Hormonal Contraception & BRCA Mutations</h1>
+      <p class="article-intro">
+        This article explores the complex relationship between hormonal birth control and the risk of breast and ovarian cancer for women carrying BRCA1 or BRCA2 gene mutations.
       </p>
-    </section>
-
+    </header>
+    
     <!-- Risk Factors -->
-    <section class="mb-12" data-aos="fade-up">
-      <h2 class="text-2xl font-semibold text-green-400 mb-6">Risk Factors</h2>
-      <div class="grid md:grid-cols-2 gap-6">
-        <div class="bg-gray-800 p-6 rounded-lg shadow-md">
-          <h3 class="font-bold text-purple-300 mb-2">BRCA1 Carriers</h3>
-          <ul class="list-disc pl-5 space-y-1">
+    <section class="section" data-aos="fade-up">
+      <h2 class="section-title">
+        <i class="fas fa-exclamation-triangle"></i> Risk Factors
+      </h2>
+      <div class="cards-grid">
+        <div class="card">
+          <h3 class="card-title brca1">
+            <i class="fas fa-dna"></i> BRCA1 Carriers
+          </h3>
+          <ul>
             <li>Up to 80% lifetime risk of breast cancer</li>
             <li>Higher risk of early-onset breast cancer</li>
             <li>40–60% risk of ovarian cancer</li>
           </ul>
         </div>
-        <div class="bg-gray-800 p-6 rounded-lg shadow-md">
-          <h3 class="font-bold text-green-300 mb-2">BRCA2 Carriers</h3>
-          <ul class="list-disc pl-5 space-y-1">
+        <div class="card">
+          <h3 class="card-title brca2">
+            <i class="fas fa-dna"></i> BRCA2 Carriers
+          </h3>
+          <ul>
             <li>45–70% lifetime risk of breast cancer</li>
             <li>Increased risk of male breast cancer</li>
             <li>15–25% risk of ovarian cancer</li>
@@ -52,89 +418,122 @@
         </div>
       </div>
     </section>
-
+    
     <!-- Benefits & Risks -->
-    <section class="mb-12" data-aos="fade-up">
-      <h2 class="text-2xl font-semibold text-blue-300 mb-6">Hormonal Contraception – Benefits & Risks</h2>
-      <div class="grid md:grid-cols-2 gap-6">
-        <div class="bg-gray-800 p-6 rounded-lg shadow-md">
-          <h3 class="font-bold text-green-300 mb-2">Benefits</h3>
-          <ul class="list-disc pl-5 space-y-1">
+    <section class="section" data-aos="fade-up">
+      <h2 class="section-title">
+        <i class="fas fa-balance-scale"></i> Benefits & Risks
+      </h2>
+      <div class="cards-grid">
+        <div class="card">
+          <h3 class="card-title benefit">
+            <i class="fas fa-check-circle"></i> Benefits
+          </h3>
+          <ul>
             <li>May reduce ovarian cancer risk by up to 50%</li>
             <li>Helps regulate menstrual cycles</li>
-            <li>Relieves menstrual pain</li>
+            <li>Relieves menstrual pain and cramping</li>
           </ul>
         </div>
-        <div class="bg-gray-800 p-6 rounded-lg shadow-md">
-          <h3 class="font-bold text-red-400 mb-2">Risks</h3>
-          <ul class="list-disc pl-5 space-y-1">
+        <div class="card">
+          <h3 class="card-title risk">
+            <i class="fas fa-exclamation-circle"></i> Risks
+          </h3>
+          <ul>
             <li>Possible slight increase in breast cancer risk</li>
-            <li>Risk varies by mutation and duration of use</li>
+            <li>Risk varies by mutation type</li>
+            <li>Duration of use affects risk level</li>
           </ul>
         </div>
       </div>
     </section>
-
+    
     <!-- Preventive Options -->
-    <section class="mb-12" data-aos="fade-up">
-      <h2 class="text-2xl font-semibold text-purple-300 mb-6">Preventive Options</h2>
-      <div class="grid sm:grid-cols-3 gap-6">
-        <div class="bg-gray-800 p-4 rounded-lg text-center shadow">
-          <i class="fas fa-user-shield text-2xl text-purple-300 mb-2"></i>
-          <h3 class="font-semibold mb-2">Risk-Reducing Surgery</h3>
-          <ul class="list-disc text-left pl-5 space-y-1">
+    <section class="section" data-aos="fade-up">
+      <h2 class="section-title">
+        <i class="fas fa-shield-alt"></i> Preventive Options
+      </h2>
+      <div class="prevention-grid">
+        <div class="prevention-card">
+          <div class="prevention-icon">
+            <i class="fas fa-user-shield"></i>
+          </div>
+          <h3>Risk-Reducing Surgery</h3>
+          <ul>
             <li>Mastectomy: up to 90% risk reduction</li>
             <li>Oophorectomy reduces ovarian cancer risk</li>
           </ul>
         </div>
-        <div class="bg-gray-800 p-4 rounded-lg text-center shadow">
-          <i class="fas fa-pills text-2xl text-green-300 mb-2"></i>
-          <h3 class="font-semibold mb-2">Preventive Medication</h3>
-          <ul class="list-disc text-left pl-5 space-y-1">
+        <div class="prevention-card">
+          <div class="prevention-icon">
+            <i class="fas fa-pills"></i>
+          </div>
+          <h3>Preventive Medication</h3>
+          <ul>
             <li>Tamoxifen (pre-menopause)</li>
             <li>Aromatase inhibitors (post-menopause)</li>
             <li>May reduce breast cancer risk by 50%</li>
           </ul>
         </div>
-        <div class="bg-gray-800 p-4 rounded-lg text-center shadow">
-          <i class="fas fa-stethoscope text-2xl text-blue-300 mb-2"></i>
-          <h3 class="font-semibold mb-2">Enhanced Screening</h3>
-          <ul class="list-disc text-left pl-5 space-y-1">
+        <div class="prevention-card">
+          <div class="prevention-icon">
+            <i class="fas fa-stethoscope"></i>
+          </div>
+          <h3>Enhanced Screening</h3>
+          <ul>
             <li>Breast exams every 6–12 months</li>
             <li>Annual MRI and mammogram</li>
-            <li>Monthly self-exam</li>
+            <li>Monthly self-examination</li>
           </ul>
         </div>
       </div>
     </section>
-
+    
     <!-- Recommendations -->
-    <section class="mb-12" data-aos="fade-up">
-      <h2 class="text-2xl font-semibold text-green-400 mb-6">Recommendations</h2>
-      <ul class="list-disc pl-5 space-y-2 text-gray-300">
-        <li><strong>Consult specialists:</strong> Genetic counselors or oncologists.</li>
-        <li><strong>Evaluate risks:</strong> Based on personal and family history.</li>
-        <li><strong>Consider non-hormonal options:</strong> Like copper IUDs or barrier methods.</li>
-        <li><strong>Follow screening schedules:</strong> Regular checkups are crucial.</li>
-        <li><strong>Healthy lifestyle:</strong> Eat well, exercise, avoid alcohol.</li>
-      </ul>
+    <section class="section" data-aos="fade-up">
+      <h2 class="section-title">
+        <i class="fas fa-clipboard-list"></i> Recommendations
+      </h2>
+      <div class="recommendations">
+        <ul>
+          <li><strong>Consult specialists:</strong> Genetic counselors or oncologists for personalized advice.</li>
+          <li><strong>Evaluate risks:</strong> Based on your personal and family medical history.</li>
+          <li><strong>Consider alternatives:</strong> Non-hormonal options like copper IUDs or barrier methods.</li>
+          <li><strong>Follow screening schedules:</strong> Regular checkups are crucial for early detection.</li>
+          <li><strong>Maintain healthy lifestyle:</strong> Eat well, exercise regularly, avoid alcohol.</li>
+        </ul>
+      </div>
     </section>
-
+    
     <!-- Discussion Questions -->
-    <section class="mb-12" data-aos="fade-up">
-      <h2 class="text-2xl font-semibold text-purple-300 mb-6">Discussion Questions</h2>
-      <ul class="list-disc pl-5 space-y-2 text-gray-300">
-        <li>What’s the safest birth control method for me?</li>
-        <li>Should I consider preventive surgery?</li>
-        <li>What exams should I get and how often?</li>
-        <li>Are there clinical trials I can join?</li>
-        <li>What lifestyle changes reduce cancer risk?</li>
-      </ul>
+    <section class="section" data-aos="fade-up">
+      <h2 class="section-title">
+        <i class="fas fa-comments"></i> Questions for Your Doctor
+      </h2>
+      <div class="discussion">
+        <ul>
+          <li><i class="fas fa-question-circle"></i> What's the safest birth control method for me?</li>
+          <li><i class="fas fa-question-circle"></i> Should I consider preventive surgery?</li>
+          <li><i class="fas fa-question-circle"></i> What exams should I get and how often?</li>
+          <li><i class="fas fa-question-circle"></i> Are there clinical trials I can join?</li>
+          <li><i class="fas fa-question-circle"></i> What lifestyle changes reduce cancer risk?</li>
+        </ul>
+      </div>
     </section>
+    
+    <!-- Footer -->
+    <footer class="article-footer">
+      <p>Article by <a href="../index.html">PBL15-HUE Team</a> • Horus University</p>
+    </footer>
   </div>
-
+  
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>AOS.init();</script>
-
+  <script>
+    AOS.init({
+      duration: 800,
+      easing: 'ease-out-cubic',
+      once: true
+    });
+  </script>
 </body>
 </html>

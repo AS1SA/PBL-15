@@ -1,112 +1,440 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth dark">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Learn how to use birth control pills safely and reduce your risk of breast cancer.">
+  <meta name="description" content="Learn how to safely use birth control pills while minimizing breast cancer risk.">
   <link rel="icon" type="image/png" href="../ICON.webp">
-  <title>Safe Use of Birth Control Pills</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <title>Safe Birth Control Use | PBL15-HUE</title>
+  
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  
+  <style>
+    :root {
+      --primary: #0d9488;
+      --primary-light: #5eead4;
+      --secondary: #7c3aed;
+      --accent: #f472b6;
+      --bg-dark: #0f172a;
+      --bg-card: #1e293b;
+      --text-primary: #f1f5f9;
+      --text-secondary: #94a3b8;
+      --gradient: linear-gradient(135deg, #0d9488 0%, #7c3aed 100%);
+      --radius: 16px;
+    }
+    
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg-dark);
+      color: var(--text-primary);
+      line-height: 1.8;
+      min-height: 100vh;
+    }
+    
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: -1;
+      background: 
+        radial-gradient(circle at 80% 20%, rgba(13, 148, 136, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 20% 80%, rgba(124, 58, 237, 0.15) 0%, transparent 50%);
+    }
+    
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+    }
+    
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--gradient);
+      color: white;
+      padding: 0.875rem 1.75rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 20px rgba(13, 148, 136, 0.4);
+      margin-bottom: 2rem;
+    }
+    
+    .back-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 30px rgba(13, 148, 136, 0.5);
+    }
+    
+    .article-header { margin-bottom: 3rem; }
+    
+    .article-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(124, 58, 237, 0.2);
+      padding: 0.5rem 1rem;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #a78bfa;
+      margin-bottom: 1rem;
+      border: 1px solid rgba(124, 58, 237, 0.3);
+    }
+    
+    .article-title {
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 800;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+    
+    .article-intro {
+      font-size: 1.15rem;
+      color: var(--text-secondary);
+    }
+    
+    .section { margin-bottom: 3rem; }
+    
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--primary-light);
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    
+    .section-title i { color: var(--secondary); }
+    
+    /* Tips Grid */
+    .tips-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+    
+    .tip-card {
+      background: var(--bg-card);
+      border-radius: var(--radius);
+      padding: 1.75rem;
+      border: 1px solid rgba(255,255,255,0.05);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .tip-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: var(--gradient);
+    }
+    
+    .tip-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+    }
+    
+    .tip-number {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--gradient);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+    }
+    
+    .tip-card h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 0.75rem;
+    }
+    
+    .tip-card p {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+    }
+    
+    /* Alternatives Section */
+    .alternatives-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+    }
+    
+    .alt-card {
+      background: var(--bg-card);
+      border-radius: var(--radius);
+      padding: 2rem 1.5rem;
+      text-align: center;
+      border: 1px solid rgba(255,255,255,0.05);
+      transition: all 0.3s ease;
+    }
+    
+    .alt-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--primary);
+    }
+    
+    .alt-icon {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgba(13, 148, 136, 0.2), rgba(124, 58, 237, 0.2));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.25rem;
+      font-size: 1.75rem;
+      color: var(--primary-light);
+    }
+    
+    .alt-card h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 0.5rem;
+    }
+    
+    .alt-card p {
+      color: var(--text-secondary);
+      font-size: 0.85rem;
+    }
+    
+    /* Warning Box */
+    .warning-box {
+      background: linear-gradient(135deg, rgba(251, 146, 60, 0.1), rgba(239, 68, 68, 0.1));
+      border: 1px solid rgba(251, 146, 60, 0.3);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+    
+    .warning-box i {
+      font-size: 1.5rem;
+      color: #fb923c;
+      flex-shrink: 0;
+    }
+    
+    .warning-box p {
+      color: var(--text-secondary);
+      margin: 0;
+    }
+    
+    .warning-box strong {
+      color: #fbbf24;
+    }
+    
+    /* Checklist */
+    .checklist {
+      background: var(--bg-card);
+      border-radius: var(--radius);
+      padding: 2rem;
+      border: 1px solid rgba(255,255,255,0.05);
+    }
+    
+    .checklist ul {
+      list-style: none;
+      display: grid;
+      gap: 1rem;
+    }
+    
+    .checklist li {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem;
+      background: rgba(0,0,0,0.2);
+      border-radius: 12px;
+      color: var(--text-secondary);
+      transition: all 0.3s ease;
+    }
+    
+    .checklist li:hover {
+      background: rgba(13, 148, 136, 0.1);
+    }
+    
+    .checklist li i {
+      width: 28px;
+      height: 28px;
+      background: var(--gradient);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 0.75rem;
+      flex-shrink: 0;
+    }
+    
+    .article-footer {
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      text-align: center;
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+    }
+    
+    .article-footer a {
+      color: var(--primary-light);
+      text-decoration: none;
+    }
+    
+    @media (max-width: 768px) {
+      .container { padding: 1.5rem 1rem; }
+      .tips-grid, .alternatives-grid { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
-
-
-
-<body class="bg-gray-900 text-white font-sans leading-relaxed tracking-wide px-4 sm:px-6 md:px-8 lg:px-32 py-12">
-
-  <!-- Back Button -->
-  <div class="max-w-5xl mx-auto px-4 mb-6">
-    <a href="../index.html" class="bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 text-white py-3 px-6 rounded-full shadow-lg hover:scale-105 transition-all duration-300 inline-block">
-      ← Back to Home
+<body>
+  <div class="container">
+    <a href="../index.html" class="back-btn" data-aos="fade-right">
+      <i class="fas fa-arrow-left"></i> Back to Home
     </a>
-  </div>
-
-  <!-- Title -->
-  <div class="max-w-5xl mx-auto">
-    <h1 class="text-3xl sm:text-4xl font-bold text-purple-300 mb-4">Safe Use of Birth Control Pills</h1>
-    <p class="text-lg mb-10 text-gray-300">
-      Learn how to use birth control pills safely and reduce your risk of breast cancer with evidence-based tips and medical guidance.
-    </p>
-
-    <!-- Section: Why Safety Matters -->
-    <section class="mb-12" data-aos="fade-up">
-      <h2 class="text-2xl font-semibold text-green-400 mb-4">Why Safety Matters</h2>
-      <p class="mb-4">
-        Birth control pills are widely used for family planning and hormonal regulation. However, prolonged or incorrect use can slightly increase the risk of developing breast cancer in some women, especially those with genetic predispositions or hormonal imbalances.
+    
+    <header class="article-header" data-aos="fade-up">
+      <span class="article-badge">
+        <i class="fas fa-heart-pulse"></i> Health Guide
+      </span>
+      <h1 class="article-title">Safe Use of Birth Control Pills</h1>
+      <p class="article-intro">
+        Practical guidelines and tips to use hormonal birth control safely while minimizing potential health risks, including breast cancer risk.
       </p>
-    </section>
-
-    <!-- Section: Risk Factors -->
-    <section class="mb-12" data-aos="fade-up">
-      <h2 class="text-2xl font-semibold text-red-400 mb-6">Key Risk Factors</h2>
-      <div class="grid md:grid-cols-2 gap-6">
-        <div class="bg-gray-800 p-6 rounded-lg shadow-md">
-          <h3 class="font-bold text-red-300 mb-2">Long-term Use</h3>
-          <p>Using hormonal contraceptives for more than 5 years may slightly increase breast cancer risk in some individuals.</p>
+    </header>
+    
+    <!-- Safety Tips -->
+    <section class="section" data-aos="fade-up">
+      <h2 class="section-title">
+        <i class="fas fa-shield-heart"></i> Essential Safety Tips
+      </h2>
+      <div class="tips-grid">
+        <div class="tip-card">
+          <div class="tip-number">1</div>
+          <h3>Consult Your Doctor First</h3>
+          <p>Always discuss your medical history, family history of cancer, and risk factors with a healthcare provider before starting any birth control.</p>
         </div>
-        <div class="bg-gray-800 p-6 rounded-lg shadow-md">
-          <h3 class="font-bold text-red-300 mb-2">Family History</h3>
-          <p>Having close relatives with breast cancer increases your personal risk — consider genetic counseling.</p>
+        <div class="tip-card">
+          <div class="tip-number">2</div>
+          <h3>Know Your Options</h3>
+          <p>Different formulations have different hormone levels. Low-dose pills or progestin-only options may be safer for some women.</p>
         </div>
-        <div class="bg-gray-800 p-6 rounded-lg shadow-md">
-          <h3 class="font-bold text-red-300 mb-2">High Estrogen Formulations</h3>
-          <p>Some pills contain higher doses of estrogen, which may increase risk more than low-dose alternatives.</p>
+        <div class="tip-card">
+          <div class="tip-number">3</div>
+          <h3>Monitor Duration of Use</h3>
+          <p>Long-term use may slightly increase certain risks. Discuss optimal duration with your doctor and reassess periodically.</p>
         </div>
-        <div class="bg-gray-800 p-6 rounded-lg shadow-md">
-          <h3 class="font-bold text-red-300 mb-2">Early Use Before Age 20</h3>
-          <p>Starting hormonal contraception at an early age without monitoring can have long-term effects.</p>
+        <div class="tip-card">
+          <div class="tip-number">4</div>
+          <h3>Regular Health Screenings</h3>
+          <p>Maintain regular breast exams and screenings. Early detection is key to managing any potential health issues.</p>
+        </div>
+        <div class="tip-card">
+          <div class="tip-number">5</div>
+          <h3>Report Side Effects</h3>
+          <p>If you experience unusual symptoms like breast lumps, persistent pain, or changes, contact your healthcare provider immediately.</p>
+        </div>
+        <div class="tip-card">
+          <div class="tip-number">6</div>
+          <h3>Lifestyle Matters</h3>
+          <p>Combine birth control use with healthy habits: regular exercise, balanced diet, limited alcohol, and no smoking.</p>
         </div>
       </div>
     </section>
-
-    <!-- Section: Safety Tips -->
-    <section class="mb-12" data-aos="fade-up">
-      <h2 class="text-2xl font-semibold text-blue-300 mb-6">Safe Use Tips</h2>
-      <ul class="list-disc pl-6 space-y-2 text-white">
-        <li>Consult a gynecologist before starting any birth control method.</li>
-        <li>Choose low-dose or mini-pill options when appropriate.</li>
-        <li>Avoid self-prescribing or switching brands frequently.</li>
-        <li>Schedule regular breast exams and mammograms as advised.</li>
-        <li>Discuss your family history with your doctor.</li>
-      </ul>
+    
+    <!-- Warning -->
+    <section class="section" data-aos="fade-up">
+      <div class="warning-box">
+        <i class="fas fa-triangle-exclamation"></i>
+        <p><strong>Important:</strong> Women with BRCA1/BRCA2 mutations, strong family history of breast cancer, or previous breast cancer should discuss alternative contraception methods with their healthcare provider before using hormonal birth control.</p>
+      </div>
     </section>
-
-    <!-- Section: Lifestyle Advice -->
-    <section class="mb-12" data-aos="fade-up">
-      <h2 class="text-2xl font-semibold text-purple-300 mb-4">Additional Lifestyle Advice</h2>
-      <p class="mb-4">
-        Combining safe pill usage with a healthy lifestyle further reduces cancer risk. This includes:
-      </p>
-      <div class="grid sm:grid-cols-3 gap-6">
-        <div class="bg-gray-800 p-4 rounded-lg text-center shadow">
-          <i class="fas fa-dumbbell text-2xl text-purple-300 mb-2"></i>
-          <p class="font-semibold">Exercise Regularly</p>
+    
+    <!-- Alternatives -->
+    <section class="section" data-aos="fade-up">
+      <h2 class="section-title">
+        <i class="fas fa-arrows-alt-h"></i> Alternative Options
+      </h2>
+      <div class="alternatives-grid">
+        <div class="alt-card">
+          <div class="alt-icon"><i class="fas fa-ring"></i></div>
+          <h3>Copper IUD</h3>
+          <p>Non-hormonal, long-term protection up to 10 years</p>
         </div>
-        <div class="bg-gray-800 p-4 rounded-lg text-center shadow">
-          <i class="fas fa-apple-alt text-2xl text-purple-300 mb-2"></i>
-          <p class="font-semibold">Eat Healthy</p>
+        <div class="alt-card">
+          <div class="alt-icon"><i class="fas fa-shield"></i></div>
+          <h3>Barrier Methods</h3>
+          <p>Condoms, diaphragms - no hormonal effects</p>
         </div>
-        <div class="bg-gray-800 p-4 rounded-lg text-center shadow">
-          <i class="fas fa-ban text-2xl text-purple-300 mb-2"></i>
-          <p class="font-semibold">Limit Alcohol & Smoking</p>
+        <div class="alt-card">
+          <div class="alt-icon"><i class="fas fa-calendar-check"></i></div>
+          <h3>Fertility Awareness</h3>
+          <p>Track your cycle to identify fertile days</p>
+        </div>
+        <div class="alt-card">
+          <div class="alt-icon"><i class="fas fa-pills"></i></div>
+          <h3>Progestin-Only</h3>
+          <p>Mini-pill without estrogen component</p>
         </div>
       </div>
     </section>
-
-    <!-- Section: Final Note -->
-    <section class="mb-12" data-aos="fade-up">
-      <h2 class="text-2xl font-semibold text-white mb-4">Final Note</h2>
-      <p class="text-gray-300">
-        Birth control pills are generally safe when used correctly. Stay informed, ask questions, and follow up with your doctor regularly to make the best decisions for your health.
-      </p>
+    
+    <!-- When to See Doctor -->
+    <section class="section" data-aos="fade-up">
+      <h2 class="section-title">
+        <i class="fas fa-user-doctor"></i> When to See Your Doctor
+      </h2>
+      <div class="checklist">
+        <ul>
+          <li><i class="fas fa-check"></i> Before starting any new birth control method</li>
+          <li><i class="fas fa-check"></i> If you notice any breast lumps or changes</li>
+          <li><i class="fas fa-check"></i> If you have persistent headaches or vision changes</li>
+          <li><i class="fas fa-check"></i> If you experience unusual bleeding patterns</li>
+          <li><i class="fas fa-check"></i> For annual checkups and breast screenings</li>
+          <li><i class="fas fa-check"></i> If you have a family history of cancer</li>
+        </ul>
+      </div>
     </section>
+    
+    <footer class="article-footer">
+      <p>Article by <a href="../index.html">PBL15-HUE Team</a> • Horus University</p>
+    </footer>
   </div>
-
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script>AOS.init();</script>
-
-
-
+  
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 800,
+      easing: 'ease-out-cubic',
+      once: true
+    });
+  </script>
 </body>
 </html>

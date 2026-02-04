@@ -1,184 +1,283 @@
 /* ============================================
-   PBL15-HUE Main JavaScript
+   PBL15-HUE Premium Scripts
+   Modern, Clean & Professional
    ============================================ */
 
-// Wait for DOM to be ready
-document.addEventListener('DOMContentLoaded', function() {
-  // Initialize all components
+// Initialize on DOM ready
+document.addEventListener('DOMContentLoaded', () => {
+  initAOS();
   initThemeToggle();
+  initNavbarScroll();
   initWelcomePopup();
   initBackToTop();
-  initPosterCards();
   initCarousel();
-  initAOS();
 });
+
+/* ---------- AOS Initialization ---------- */
+function initAOS() {
+  AOS.init({
+    duration: 800,
+    easing: 'ease-out-cubic',
+    once: true,
+    offset: 50,
+    disable: window.innerWidth < 768 ? 'mobile' : false
+  });
+}
 
 /* ---------- Theme Toggle ---------- */
 function initThemeToggle() {
-  const toggleBtn = document.getElementById('themeToggle');
-  if (!toggleBtn) return;
-
-  // Load saved theme or detect from time
+  const toggle = document.getElementById('themeToggle');
+  const html = document.documentElement;
+  
+  // Check saved preference or system preference
   const savedTheme = localStorage.getItem('theme');
-  if (savedTheme === 'dark') {
-    document.body.classList.add('dark');
-    toggleBtn.textContent = '☀️';
-  } else if (savedTheme === 'light') {
-    document.body.classList.remove('dark');
-    toggleBtn.textContent = '🌙';
+  const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  
+  // Check time-based theme (dark between 6PM - 6AM)
+  const hour = new Date().getHours();
+  const isNightTime = hour >= 18 || hour < 6;
+  
+  if (savedTheme === 'dark' || (!savedTheme && (systemDark || isNightTime))) {
+    html.classList.add('dark');
+    toggle.textContent = '☀️';
   } else {
-    // First time visitor - set theme based on time
-    const hour = new Date().getHours();
-    if (hour >= 18 || hour < 6) {
-      document.body.classList.add('dark');
-      toggleBtn.textContent = '☀️';
-      localStorage.setItem('theme', 'dark');
-    } else {
-      toggleBtn.textContent = '🌙';
-      localStorage.setItem('theme', 'light');
-    }
+    toggle.textContent = '🌙';
   }
-
-  // Toggle theme on click
-  toggleBtn.addEventListener('click', function() {
-    document.body.classList.toggle('dark');
-    const isDark = document.body.classList.contains('dark');
-    toggleBtn.textContent = isDark ? '☀️' : '🌙';
+  
+  toggle.addEventListener('click', () => {
+    html.classList.toggle('dark');
+    const isDark = html.classList.contains('dark');
+    toggle.textContent = isDark ? '☀️' : '🌙';
     localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    
+    // Add animation
+    toggle.style.transform = 'rotate(360deg) scale(1.2)';
+    setTimeout(() => {
+      toggle.style.transform = '';
+    }, 300);
+  });
+}
+
+/* ---------- Navbar Scroll Effect ---------- */
+function initNavbarScroll() {
+  const navbar = document.querySelector('.navbar');
+  let lastScroll = 0;
+  
+  window.addEventListener('scroll', () => {
+    const currentScroll = window.pageYOffset;
+    
+    if (currentScroll > 50) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
+    
+    lastScroll = currentScroll;
+  }, { passive: true });
+  
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        const offset = navbar.offsetHeight + 20;
+        const targetPosition = target.offsetTop - offset;
+        window.scrollTo({
+          top: targetPosition,
+          behavior: 'smooth'
+        });
+      }
+    });
   });
 }
 
 /* ---------- Welcome Popup ---------- */
 function initWelcomePopup() {
   const popup = document.getElementById('welcomePopup');
-  if (popup) {
-    popup.classList.remove('hidden');
+  const hasVisited = sessionStorage.getItem('welcomeShown');
+  
+  if (!hasVisited && popup) {
+    setTimeout(() => {
+      popup.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }, 1000);
   }
 }
 
 function closePopup() {
   const popup = document.getElementById('welcomePopup');
   if (popup) {
-    popup.classList.add('hidden');
-  }
-  
-  // Auto-play video after closing popup
-  const video = document.getElementById('mainVideo');
-  if (video) {
-    const src = video.src;
-    if (!src.includes('autoplay=1')) {
-      video.src = src.includes('?') ? src + '&autoplay=1' : src + '?autoplay=1';
-    }
+    popup.classList.remove('active');
+    document.body.style.overflow = '';
+    sessionStorage.setItem('welcomeShown', 'true');
   }
 }
 
-/* ---------- Back to Top Button ---------- */
+/* ---------- Back to Top ---------- */
 function initBackToTop() {
-  const backToTopBtn = document.getElementById('backToTopBtn');
-  if (!backToTopBtn) return;
-
-  // Show/hide button based on scroll position
-  window.addEventListener('scroll', function() {
-    const scrolled = document.body.scrollTop > 200 || document.documentElement.scrollTop > 200;
-    backToTopBtn.style.display = scrolled ? 'block' : 'none';
-  }, { passive: true });
-
-  // Scroll to top on click
-  backToTopBtn.addEventListener('click', function() {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
-}
-
-/* ---------- Poster Cards Image Enhancement ---------- */
-function initPosterCards() {
-  document.querySelectorAll('.poster-card').forEach(function(card) {
-    const desc = card.querySelector('p');
-    const img = card.querySelector('img');
-    if (desc && img && desc.textContent.trim().length < 60) {
-      img.style.maxHeight = '350px';
+  const btn = document.getElementById('backToTopBtn');
+  
+  if (!btn) return;
+  
+  window.addEventListener('scroll', () => {
+    if (window.pageYOffset > 500) {
+      btn.classList.add('visible');
+    } else {
+      btn.classList.remove('visible');
     }
+  }, { passive: true });
+  
+  btn.addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
   });
 }
 
-/* ---------- Image Carousel ---------- */
+/* ---------- Carousel ---------- */
 function initCarousel() {
-  const carousel = document.querySelector('.carousel');
+  const track = document.getElementById('carouselTrack');
   const prevBtn = document.getElementById('prevBtn');
   const nextBtn = document.getElementById('nextBtn');
   
-  if (!carousel || !prevBtn || !nextBtn) return;
-
-  const scrollAmount = 316; // Image width + gap
-
-  prevBtn.addEventListener('click', function() {
-    carousel.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+  if (!track || !prevBtn || !nextBtn) return;
+  
+  let scrollAmount = 0;
+  const scrollStep = 300;
+  
+  const updateButtons = () => {
+    const maxScroll = track.scrollWidth - track.parentElement.clientWidth;
+    prevBtn.style.opacity = scrollAmount <= 0 ? '0.5' : '1';
+    nextBtn.style.opacity = scrollAmount >= maxScroll ? '0.5' : '1';
+  };
+  
+  prevBtn.addEventListener('click', () => {
+    scrollAmount = Math.max(0, scrollAmount - scrollStep);
+    track.style.transform = `translateX(-${scrollAmount}px)`;
+    updateButtons();
   });
-
-  nextBtn.addEventListener('click', function() {
-    carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+  
+  nextBtn.addEventListener('click', () => {
+    const maxScroll = track.scrollWidth - track.parentElement.clientWidth;
+    scrollAmount = Math.min(maxScroll, scrollAmount + scrollStep);
+    track.style.transform = `translateX(-${scrollAmount}px)`;
+    updateButtons();
   });
-
-  // Hover effects
-  [prevBtn, nextBtn].forEach(function(btn) {
-    btn.addEventListener('mouseenter', function() {
-      btn.style.background = 'rgba(255,255,255,1)';
-    });
-    btn.addEventListener('mouseleave', function() {
-      btn.style.background = 'rgba(255,255,255,0.8)';
-    });
-  });
+  
+  // Touch support
+  let touchStartX = 0;
+  let touchEndX = 0;
+  
+  track.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+  }, { passive: true });
+  
+  track.addEventListener('touchend', (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipe();
+  }, { passive: true });
+  
+  const handleSwipe = () => {
+    const diff = touchStartX - touchEndX;
+    if (Math.abs(diff) > 50) {
+      if (diff > 0) {
+        nextBtn.click();
+      } else {
+        prevBtn.click();
+      }
+    }
+  };
+  
+  updateButtons();
 }
 
-/* ---------- Modal for Images ---------- */
+/* ---------- Modal Functions ---------- */
 function openModal(src) {
   const modal = document.getElementById('modal');
   const modalImg = document.getElementById('modalImg');
+  
   if (modal && modalImg) {
-    modal.style.display = 'flex';
     modalImg.src = src;
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
   }
 }
 
 function closeModal() {
   const modal = document.getElementById('modal');
-  const modalImg = document.getElementById('modalImg');
-  if (modal && modalImg) {
-    modal.style.display = 'none';
-    modalImg.src = '';
+  
+  if (modal) {
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
   }
 }
 
-/* ---------- AOS (Animate on Scroll) ---------- */
-function initAOS() {
-  if (typeof AOS !== 'undefined') {
-    AOS.init({
-      duration: 800,
-      once: true,
-      offset: 100
-    });
+// Close modal with Escape key
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    closeModal();
+    closePopup();
   }
-}
+});
 
-/* ---------- Lazy Loading for Images ---------- */
-// Native lazy loading is used via HTML attribute loading="lazy"
-// This is a fallback for older browsers
-if ('loading' in HTMLImageElement.prototype) {
-  // Browser supports native lazy loading
-  console.log('Native lazy loading supported');
-} else {
-  // Fallback: Load images when they come into view
-  const lazyImages = document.querySelectorAll('img[loading="lazy"]');
-  const imageObserver = new IntersectionObserver(function(entries) {
-    entries.forEach(function(entry) {
-      if (entry.isIntersecting) {
-        const img = entry.target;
-        img.src = img.dataset.src || img.src;
-        imageObserver.unobserve(img);
-      }
-    });
+/* ---------- Intersection Observer for Animations ---------- */
+const observerOptions = {
+  threshold: 0.1,
+  rootMargin: '0px 0px -50px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('animate-in');
+    }
+  });
+}, observerOptions);
+
+document.querySelectorAll('.team-card, .poster-card, .article-card').forEach(el => {
+  observer.observe(el);
+});
+
+/* ---------- Navbar Active Link ---------- */
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.navbar ul a');
+
+window.addEventListener('scroll', () => {
+  let current = '';
+  
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop - 100;
+    const sectionHeight = section.offsetHeight;
+    
+    if (window.pageYOffset >= sectionTop && window.pageYOffset < sectionTop + sectionHeight) {
+      current = section.getAttribute('id');
+    }
   });
   
-  lazyImages.forEach(function(img) {
-    imageObserver.observe(img);
+  navLinks.forEach(link => {
+    link.classList.remove('active');
+    if (link.getAttribute('href') === `#${current}`) {
+      link.classList.add('active');
+    }
   });
+}, { passive: true });
+
+/* ---------- Performance: Lazy Load Images ---------- */
+if ('loading' in HTMLImageElement.prototype) {
+  const images = document.querySelectorAll('img[loading="lazy"]');
+  images.forEach(img => {
+    img.src = img.src;
+  });
+} else {
+  // Fallback for browsers that don't support lazy loading
+  const script = document.createElement('script');
+  script.src = 'https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js';
+  document.body.appendChild(script);
 }
+
+/* ---------- Console Welcome Message ---------- */
+console.log('%c🏥 PBL15-HUE', 'color: #0d9488; font-size: 24px; font-weight: bold;');
+console.log('%cBreast Cancer Awareness Project', 'color: #7c3aed; font-size: 14px;');
+console.log('%cMade with ❤️ by Abdelrahman Elgharib', 'color: #64748b; font-size: 12px;');
