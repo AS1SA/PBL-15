@@ -607,14 +607,17 @@ body {
 }
 
 .team-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 1.5rem;
   max-width: 1200px;
   margin: 0 auto;
 }
 
 .team-card {
+  flex: 0 1 180px;
+  max-width: 200px;
   background: white;
   border-radius: var(--radius-lg);
   padding: 2rem 1.5rem;
