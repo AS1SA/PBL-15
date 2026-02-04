@@ -1571,11 +1571,13 @@ footer .name {
 /* ============================================
    Responsive Design
    ============================================ */
+
+/* Tablet */
 @media (max-width: 1024px) {
   .hero .container {
     grid-template-columns: 1fr;
     text-align: center;
-    gap: 3rem;
+    gap: 2rem;
   }
   
   .hero-content {
@@ -1626,59 +1628,115 @@ footer .name {
   }
 }
 
+/* Mobile */
 @media (max-width: 768px) {
+  /* Navbar */
+  .navbar {
+    padding: 0.75rem 1rem;
+  }
+  
+  .navbar .container {
+    padding: 0;
+  }
+  
   .navbar ul {
     display: none;
   }
   
-  .mobile-menu-btn {
-    display: block;
+  .navbar .logo {
+    font-size: 1.25rem;
   }
   
+  #themeToggle {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+  
+  /* Hero */
   .hero {
-    padding: 7rem 1.5rem 3rem;
+    padding: 6rem 1rem 2.5rem;
     min-height: auto;
   }
   
-  .section {
-    padding: 4rem 1.5rem;
+  .hero h1 {
+    font-size: 1.75rem;
+    line-height: 1.3;
   }
   
-  .team-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
+  .hero-badge {
+    font-size: 0.7rem;
+    padding: 0.4rem 0.8rem;
   }
   
-  .team-card {
-    padding: 1.5rem 1rem;
+  .hero-description {
+    font-size: 0.95rem;
   }
   
-  .team-card img {
-    width: 80px;
-    height: 80px;
-  }
-  
-  .team-card h3 {
-    font-size: 0.9rem;
-  }
-  
-  .poster-grid,
-  .articles-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .carousel-track img {
-    width: 220px;
-    height: 160px;
+  .hero-buttons {
+    flex-direction: column;
+    gap: 0.75rem;
   }
   
   .btn {
-    padding: 0.875rem 1.5rem;
+    width: 100%;
+    justify-content: center;
+    padding: 0.875rem 1.25rem;
     font-size: 0.9rem;
   }
   
+  .hero-video {
+    border-radius: var(--radius-md);
+  }
+  
+  .video-frame {
+    height: 200px;
+  }
+  
+  /* Sections */
+  .section {
+    padding: 3rem 1rem;
+  }
+  
   .section-header {
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
+  }
+  
+  .section-badge {
+    font-size: 0.75rem;
+    padding: 0.4rem 0.75rem;
+  }
+  
+  .section-title {
+    font-size: 1.5rem;
+  }
+  
+  .section-subtitle {
+    font-size: 0.9rem;
+  }
+  
+  /* About */
+  .about-text {
+    font-size: 0.95rem;
+  }
+  
+  .about-image img {
+    border-radius: var(--radius-md);
+  }
+  
+  .about-features {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  .about-feature {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  /* Stats */
+  .stats-section {
+    padding: 2.5rem 1rem;
   }
   
   .stats-grid {
@@ -1686,70 +1744,351 @@ footer .name {
     gap: 1rem;
   }
   
+  .stat-card {
+    padding: 1.25rem 0.75rem;
+  }
+  
+  .stat-icon {
+    width: 45px;
+    height: 45px;
+    font-size: 1.25rem;
+  }
+  
   .stat-number {
-    font-size: 2rem;
-  }
-  
-  .about-features {
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .developer-card {
-    padding: 2rem 1.5rem;
-  }
-  
-  .developer-image-wrapper {
-    width: 130px;
-    height: 130px;
-  }
-  
-  .developer-img {
-    width: 130px;
-    height: 130px;
-  }
-  
-  .developer-name {
-    font-size: 1.4rem;
-  }
-  
-  .developer-bio {
-    font-size: 0.9rem;
-  }
-  
-  .project-tag {
-    font-size: 0.8rem;
-    padding: 0.4rem 0.8rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .hero h1 {
-    font-size: 1.875rem;
-  }
-  
-  .section-title {
     font-size: 1.75rem;
   }
   
-  .hero-badge {
-    font-size: 0.75rem;
-    padding: 0.5rem 1rem;
+  .stat-label {
+    font-size: 0.8rem;
   }
   
-  .gallery-container {
-    padding: 1rem;
-    border-radius: var(--radius-lg);
+  /* Team */
+  .team-grid {
+    gap: 1rem;
   }
   
-  .carousel-track img {
-    width: 200px;
+  .team-card {
+    flex: 0 1 calc(50% - 0.5rem);
+    max-width: calc(50% - 0.5rem);
+    padding: 1.25rem 0.75rem;
+  }
+  
+  .team-card img {
+    width: 70px;
+    height: 70px;
+  }
+  
+  .team-card h3 {
+    font-size: 0.8rem;
+  }
+  
+  /* Posters */
+  .poster-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .poster-card {
+    padding: 1.25rem;
+  }
+  
+  .poster-image {
+    height: 200px;
+  }
+  
+  .poster-card h3 {
+    font-size: 1.1rem;
+  }
+  
+  .poster-card p {
+    font-size: 0.85rem;
+  }
+  
+  /* Articles */
+  .articles-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .article-card {
+    padding: 1.25rem;
+  }
+  
+  .article-card img {
     height: 140px;
   }
   
+  .article-card h3 {
+    font-size: 1rem;
+  }
+  
+  .article-card p {
+    font-size: 0.85rem;
+  }
+  
+  /* Gallery */
+  .gallery-container {
+    padding: 1rem;
+    border-radius: var(--radius-md);
+  }
+  
+  .carousel-track img {
+    width: 180px;
+    height: 130px;
+    border-radius: var(--radius-sm);
+  }
+  
   .carousel-btn {
+    width: 36px;
+    height: 36px;
+    font-size: 0.9rem;
+  }
+  
+  .carousel-btn.prev { left: 0.5rem; }
+  .carousel-btn.next { right: 0.5rem; }
+  
+  /* Video */
+  .video-section {
+    padding: 3rem 1rem;
+  }
+  
+  .video-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .video-card {
+    padding: 1rem;
+  }
+  
+  .video-wrapper {
+    border-radius: var(--radius-md);
+  }
+  
+  .video-card h3 {
+    font-size: 1rem;
+    margin-top: 0.75rem;
+  }
+  
+  .video-card p {
+    font-size: 0.85rem;
+  }
+  
+  /* Contact */
+  #contact {
+    padding: 3rem 1rem;
+  }
+  
+  .contact-btn {
+    padding: 1rem 1.5rem;
+    font-size: 0.95rem;
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .contact-btn i {
+    font-size: 1.25rem;
+  }
+  
+  /* Developer */
+  .developer-section {
+    padding: 3rem 1rem;
+  }
+  
+  .developer-card {
+    padding: 2rem 1.25rem;
+    max-width: 100%;
+  }
+  
+  .developer-image-wrapper {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .developer-glow {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .developer-img {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .developer-ring {
+    width: 140px;
+    height: 140px;
+  }
+  
+  .developer-name {
+    font-size: 1.3rem;
+  }
+  
+  .developer-title {
+    font-size: 0.9rem;
+  }
+  
+  .developer-bio {
+    font-size: 0.85rem;
+  }
+  
+  .project-tag {
+    font-size: 0.75rem;
+    padding: 0.35rem 0.7rem;
+  }
+  
+  .dev-link {
+    width: 42px;
+    height: 42px;
+    font-size: 1.1rem;
+  }
+  
+  /* Footer */
+  .footer-logos {
+    padding: 2rem 1rem;
+    gap: 1.5rem;
+  }
+  
+  .footer-logos img {
+    height: 60px;
+  }
+  
+  footer {
+    padding: 2rem 1rem;
+  }
+  
+  footer p {
+    font-size: 0.8rem;
+    line-height: 1.8;
+  }
+  
+  /* Popup */
+  .popup-content {
+    width: 95%;
+    max-width: 350px;
+    border-radius: var(--radius-lg);
+  }
+  
+  .popup-img {
+    height: 180px;
+  }
+  
+  .popup-body {
+    padding: 1.5rem;
+  }
+  
+  .popup-body h2 {
+    font-size: 1.25rem;
+  }
+  
+  .popup-body p {
+    font-size: 0.9rem;
+  }
+  
+  .share-buttons {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  
+  .share-btn {
     width: 40px;
     height: 40px;
+    font-size: 1rem;
+  }
+  
+  /* Back to top */
+  #backToTopBtn {
+    width: 45px;
+    height: 45px;
+    right: 1rem;
+    bottom: 1rem;
+  }
+  
+  /* Modal */
+  .modal-content {
+    width: 95%;
+    max-height: 80vh;
+  }
+  
+  .close-btn {
+    top: 0.5rem;
+    right: 0.5rem;
+    width: 35px;
+    height: 35px;
+    font-size: 1.25rem;
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 1.5rem;
+  }
+  
+  .section-title {
+    font-size: 1.35rem;
+  }
+  
+  .team-card {
+    flex: 0 1 calc(50% - 0.5rem);
+    padding: 1rem 0.5rem;
+  }
+  
+  .team-card img {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .team-card h3 {
+    font-size: 0.75rem;
+  }
+  
+  .stats-grid {
+    gap: 0.75rem;
+  }
+  
+  .stat-card {
+    padding: 1rem 0.5rem;
+  }
+  
+  .stat-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+  
+  .stat-number {
+    font-size: 1.5rem;
+  }
+  
+  .carousel-track img {
+    width: 160px;
+    height: 115px;
+  }
+  
+  .developer-image-wrapper,
+  .developer-glow,
+  .developer-img {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .developer-ring {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .developer-name {
+    font-size: 1.2rem;
+  }
+  
+  .project-tag {
+    font-size: 0.7rem;
+  }
+  
+  .dev-link {
+    width: 38px;
+    height: 38px;
     font-size: 1rem;
   }
 }
