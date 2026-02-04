@@ -36,10 +36,11 @@
       <a href="#" class="logo">PBL15<span>-HUE</span></a>
       <ul>
         <li><a href="#">Home</a></li>
+        <li><a href="#about">About</a></li>
         <li><a href="#team">Team</a></li>
         <li><a href="#posters">Posters</a></li>
         <li><a href="#articles">Articles</a></li>
-        <li><a href="#memories">Memories</a></li>
+        <li><a href="#gallery">Gallery</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
       <button id="themeToggle" aria-label="Toggle theme">🌙</button>
@@ -99,6 +100,69 @@
             11 Members
             <small>Medical Students</small>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="section">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-content" data-aos="fade-right">
+          <span class="section-badge"><i class="fas fa-info-circle"></i> About Us</span>
+          <h2 class="section-title">What is <span class="gradient-text">PBL15?</span></h2>
+          <p class="about-text">
+            PBL15 is a Problem-Based Learning project by medical students at Horus University. Our mission is to raise awareness about breast cancer, particularly focusing on the relationship between hormonal contraception and cancer risk in BRCA mutation carriers.
+          </p>
+          <p class="about-text">
+            Through research, educational materials, and community outreach, we aim to empower women with knowledge to make informed health decisions.
+          </p>
+          <div class="about-features">
+            <div class="about-feature">
+              <i class="fas fa-bullseye"></i>
+              <span>Awareness & Education</span>
+            </div>
+            <div class="about-feature">
+              <i class="fas fa-microscope"></i>
+              <span>Research-Based</span>
+            </div>
+            <div class="about-feature">
+              <i class="fas fa-heart"></i>
+              <span>Community Impact</span>
+            </div>
+          </div>
+        </div>
+        <div class="about-image" data-aos="fade-left">
+          <img src="Group photo.webp" alt="PBL15 Team" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section id="stats" class="section stats-section">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-card" data-aos="fade-up" data-aos-delay="0">
+          <div class="stat-icon"><i class="fas fa-users"></i></div>
+          <div class="stat-number" data-count="11">0</div>
+          <div class="stat-label">Team Members</div>
+        </div>
+        <div class="stat-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="stat-icon"><i class="fas fa-file-medical-alt"></i></div>
+          <div class="stat-number" data-count="3">0</div>
+          <div class="stat-label">Publications</div>
+        </div>
+        <div class="stat-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="stat-icon"><i class="fas fa-newspaper"></i></div>
+          <div class="stat-number" data-count="3">0</div>
+          <div class="stat-label">Articles</div>
+        </div>
+        <div class="stat-card" data-aos="fade-up" data-aos-delay="300">
+          <div class="stat-icon"><i class="fas fa-calendar-check"></i></div>
+          <div class="stat-number" data-count="2025">0</div>
+          <div class="stat-label">Year</div>
         </div>
       </div>
     </div>
@@ -311,8 +375,8 @@
     </div>
   </section>
 
-  <!-- Memories Section -->
-  <section id="memories" class="section">
+  <!-- Gallery Section -->
+  <section id="gallery" class="section">
     <div class="section-header" data-aos="fade-up">
       <span class="section-badge"><i class="fas fa-images"></i> Gallery</span>
       <h2 class="section-title">Our <span class="gradient-text">Memories</span></h2>
@@ -320,22 +384,8 @@
     </div>
     
     <div class="container">
-      <!-- Video -->
-      <div class="memories-video" data-aos="fade-up">
-        <div class="video-wrapper">
-          <iframe 
-            src="https://www.youtube.com/embed/_WfZRyMDHLA"
-            title="Memories Video"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-            loading="lazy">
-          </iframe>
-        </div>
-      </div>
-      
       <!-- Gallery Carousel -->
-      <div class="gallery-container" data-aos="fade-up" data-aos-delay="100">
+      <div class="gallery-container" data-aos="fade-up">
         <div class="carousel-wrapper">
           <button class="carousel-btn prev" id="prevBtn" aria-label="Previous">
             <i class="fas fa-chevron-left"></i>
@@ -350,6 +400,48 @@
           <button class="carousel-btn next" id="nextBtn" aria-label="Next">
             <i class="fas fa-chevron-right"></i>
           </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Video Section -->
+  <section id="video" class="section video-section">
+    <div class="section-header" data-aos="fade-up">
+      <span class="section-badge"><i class="fas fa-play-circle"></i> Video</span>
+      <h2 class="section-title">Watch Our <span class="gradient-text">Journey</span></h2>
+      <p class="section-subtitle">A glimpse into our poster day experience and team moments.</p>
+    </div>
+    
+    <div class="container">
+      <div class="video-grid">
+        <div class="video-card" data-aos="fade-up" data-aos-delay="0">
+          <div class="video-wrapper">
+            <iframe 
+              src="https://www.youtube.com/embed/h359I7CRFPs"
+              title="PBL15 Presentation"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+              loading="lazy">
+            </iframe>
+          </div>
+          <h3>Poster Presentation</h3>
+          <p>Our presentation on poster day</p>
+        </div>
+        <div class="video-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="video-wrapper">
+            <iframe 
+              src="https://www.youtube.com/embed/_WfZRyMDHLA"
+              title="Memories Video"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+              loading="lazy">
+            </iframe>
+          </div>
+          <h3>Team Memories</h3>
+          <p>Behind the scenes moments</p>
         </div>
       </div>
     </div>

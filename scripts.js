@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initWelcomePopup();
   initBackToTop();
   initCarousel();
+  initCounters();
 });
 
 /* ---------- AOS Initialization ---------- */
@@ -221,6 +222,41 @@ document.addEventListener('keydown', (e) => {
     closePopup();
   }
 });
+
+/* ---------- Animated Counters ---------- */
+function initCounters() {
+  const counters = document.querySelectorAll('.stat-number');
+  
+  const animateCounter = (counter) => {
+    const target = parseInt(counter.getAttribute('data-count'));
+    const duration = 2000;
+    const step = target / (duration / 16);
+    let current = 0;
+    
+    const updateCounter = () => {
+      current += step;
+      if (current < target) {
+        counter.textContent = Math.floor(current);
+        requestAnimationFrame(updateCounter);
+      } else {
+        counter.textContent = target;
+      }
+    };
+    
+    updateCounter();
+  };
+  
+  const counterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        animateCounter(entry.target);
+        counterObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.5 });
+  
+  counters.forEach(counter => counterObserver.observe(counter));
+}
 
 /* ---------- Intersection Observer for Animations ---------- */
 const observerOptions = {
