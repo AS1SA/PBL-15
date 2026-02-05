@@ -27,8 +27,9 @@ function initAOS() {
 
 /* ---------- Theme Toggle ---------- */
 function initThemeToggle() {
-  const toggle = document.getElementById('darkmode-toggle');
+  const btn = document.getElementById('darkmode-btn');
   const html = document.documentElement;
+  let isDark = false;
   
   // Check saved preference or system preference
   const savedTheme = localStorage.getItem('theme');
@@ -38,17 +39,42 @@ function initThemeToggle() {
   const hour = new Date().getHours();
   const isNightTime = hour >= 18 || hour < 6;
   
+  // Set initial positions
+  gsap.set(".dm-moon, .dm-star", {opacity: 0});
+  gsap.set(".dm-sun, .dm-cloud", {x: 0});
+  gsap.set(".dm-moon", {x: 0});
+  gsap.set(".dm-star", {x: 15, y: -3});
+  
   if (savedTheme === 'dark' || (!savedTheme && (systemDark || isNightTime))) {
     html.classList.add('dark');
-    toggle.checked = true;
-  } else {
-    toggle.checked = false;
+    isDark = true;
+    // Set to dark mode position immediately
+    gsap.set(".dm-sun", {x: -70, opacity: 0});
+    gsap.set(".dm-cloud", {opacity: 0});
+    gsap.set(".dm-moon", {x: -70, opacity: 1});
+    gsap.set(".dm-star", {opacity: 1});
   }
   
-  toggle.addEventListener('change', () => {
-    html.classList.toggle('dark');
-    const isDark = html.classList.contains('dark');
-    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+  btn.addEventListener('click', () => {
+    if (!isDark) {
+      // Switch to Dark Mode
+      gsap.to(".dm-sun", 0.6, {x: -70, opacity: 0, ease: "power2.inOut"});
+      gsap.to(".dm-cloud", 0.3, {opacity: 0, ease: "power2.inOut"});
+      gsap.to(".dm-moon", 0.6, {x: -70, rotation: -360, transformOrigin: "center", opacity: 1, ease: "power2.inOut"});
+      gsap.to(".dm-star", 0.4, {opacity: 1, ease: "power2.inOut", delay: 0.2});
+      html.classList.add('dark');
+      localStorage.setItem('theme', 'dark');
+      isDark = true;
+    } else {
+      // Switch to Light Mode
+      gsap.to(".dm-sun", 0.6, {x: 0, opacity: 1, ease: "power2.inOut"});
+      gsap.to(".dm-cloud", 0.6, {opacity: 1, ease: "power2.inOut", delay: 0.2});
+      gsap.to(".dm-moon", 0.6, {opacity: 0, x: 0, rotation: 360, transformOrigin: "center", ease: "power2.inOut"});
+      gsap.to(".dm-star", 0.3, {opacity: 0, ease: "power2.inOut"});
+      html.classList.remove('dark');
+      localStorage.setItem('theme', 'light');
+      isDark = false;
+    }
   });
 }
 
