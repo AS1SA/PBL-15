@@ -27,7 +27,7 @@ function initAOS() {
 
 /* ---------- Theme Toggle ---------- */
 function initThemeToggle() {
-  const toggle = document.getElementById('themeToggle');
+  const toggle = document.getElementById('darkmode-toggle');
   const html = document.documentElement;
   
   // Check saved preference or system preference
@@ -40,22 +40,15 @@ function initThemeToggle() {
   
   if (savedTheme === 'dark' || (!savedTheme && (systemDark || isNightTime))) {
     html.classList.add('dark');
-    toggle.textContent = '☀️';
+    toggle.checked = true;
   } else {
-    toggle.textContent = '🌙';
+    toggle.checked = false;
   }
   
-  toggle.addEventListener('click', () => {
+  toggle.addEventListener('change', () => {
     html.classList.toggle('dark');
     const isDark = html.classList.contains('dark');
-    toggle.textContent = isDark ? '☀️' : '🌙';
     localStorage.setItem('theme', isDark ? 'dark' : 'light');
-    
-    // Add animation
-    toggle.style.transform = 'rotate(360deg) scale(1.2)';
-    setTimeout(() => {
-      toggle.style.transform = '';
-    }, 300);
   });
 }
 
