@@ -161,68 +161,67 @@ body {
   color: var(--primary);
 }
 
-/* Theme Toggle - Animated Sun/Moon/Stars */
-.darkmode-wrapper {
+/* Theme Toggle - Clean Sun/Moon Animation */
+.theme-toggle-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+#theme-toggle {
+  display: none;
+}
+
+.theme-toggle-label {
   position: relative;
-  width: 80px;
+  display: block;
+  width: 70px;
   height: 38px;
+  border-radius: 100px;
+  background-color: #000839;
+  overflow: hidden;
   cursor: pointer;
 }
 
-#darkmode-layer {
+.theme-toggle-label:before,
+.theme-toggle-label:after {
+  display: block;
   position: absolute;
-  width: 100%;
-  height: 100%;
-  background: #9cd6ef;
-  border: 3px solid #65c0e7;
-  border-radius: 50px;
-  transition: all 0.5s ease;
-  z-index: 1;
+  content: "";
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  top: 5px;
+  left: 5px;
+  transition: 0.5s ease;
 }
 
-#darkmode-btn {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  z-index: 2;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  border-radius: 50px;
+.theme-toggle-label:before {
+  background-color: #ffa41b;
 }
 
-.darkmode-svg {
-  width: 180px;
-  height: auto;
-  pointer-events: none;
+.theme-toggle-label:after {
+  background-color: #000839;
+  left: -22px;
+  transform: scale(0.00001);
 }
 
-.dm-star {
-  opacity: 0;
+/* Checked State - Moon */
+#theme-toggle:checked + .theme-toggle-label:before {
+  background-color: #FFF;
+  transform: translateX(32px);
 }
 
-.dm-moon {
-  opacity: 0;
-}
-
-.dm-sun, .dm-cloud {
-  opacity: 1;
-}
-
-/* Dark Mode Active State */
-.dark #darkmode-layer {
-  background: #224f6d;
-  border-color: #cad4d8;
+#theme-toggle:checked + .theme-toggle-label:after {
+  transform: translateX(46px) scale(1);
 }
 
 /* Hover Effect */
-.darkmode-wrapper:hover {
-  transform: scale(1.05);
+.theme-toggle-label:hover {
+  box-shadow: 0 0 15px rgba(255, 164, 27, 0.5);
 }
 
-.darkmode-wrapper:active {
-  transform: scale(0.98);
+#theme-toggle:checked + .theme-toggle-label:hover {
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
 }
 
 /* Mobile Menu */
